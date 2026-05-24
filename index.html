@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gas Inpex — Инжиниринг, автоматизация и поставка газового оборудования</title>
+  <meta name="description" content="ТОО «Gas Inpex» — инжиниринг, автоматизация (АСУ ТП), поставка промышленного газового оборудования, проектирование систем Умный дом. г. Темиртау." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js CDN -->
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ===== CUSTOM STYLES ===== */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* Partners infinite scroll */
+    @keyframes scrollPartners {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .partners-track {
+      animation: scrollPartners 30s linear infinite;
+      display: flex;
+      width: max-content;
+    }
+    .partners-track:hover { animation-play-state: paused; }
+
+    /* Hero slide transitions */
+    .hero-fade {
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #6B7280; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #001A33; }
+
+    /* Underline animation for nav links */
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #E60000;
+      transition: width 0.3s ease;
+      margin-top: 2px;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+
+    /* Dropdown */
+    .dropdown-content {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    }
+    .group:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Counter animation */
+    .counter-value { font-variant-numeric: tabular-nums; }
+
+    /* Sticky CTA mobile */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+
+    /* Quick links overlap hero */
+    .quick-links-row {
+      margin-top: -60px;
+      position: relative;
+      z-index: 10;
+    }
+    @media (max-width: 768px) {
+      .quick-links-row { margin-top: -40px; }
+    }
+
+    /* Nav hamburger */
+    .mobile-menu { transition: max-height 0.35s ease, opacity 0.25s ease; }
+    .mobile-menu.open { max-height: 600px; opacity: 1; }
+    .mobile-menu.closed { max-height: 0; opacity: 0; overflow: hidden; }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-white">
+
+  <!-- ============================================================ -->
+  <!-- TOP BAR                                                       -->
+  <!-- ============================================================ -->
+  <div class="bg-[#001A33] text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2">
+      <!-- Language switcher -->
+      <div class="flex items-center gap-3">
+        <button onclick="switchLang('ru')" class="lang-btn text-xs uppercase tracking-wider transition text-[#E60000] font-semibold" data-lang="ru" data-i18n="langRu">Рус</button>
+        <span class="text-gray-500">|</span>
+        <button onclick="switchLang('en')" class="lang-btn text-xs uppercase tracking-wider transition text-gray-300 hover:text-white" data-lang="en" data-i18n="langEn">Eng</button>
+        <span class="text-gray-500">|</span>
+        <button onclick="switchLang('kk')" class="lang-btn text-xs uppercase tracking-wider transition text-gray-300 hover:text-white" data-lang="kk" data-i18n="langKk">Қаз</button>
+      </div>
+      <!-- Contacts -->
+      <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
+        <a href="tel:+77213567890" class="hover:text-[#E60000] transition flex items-center gap-1.5">
+          <i class="fas fa-phone-alt text-[#E60000] text-xs"></i> +7 (7213) 56-78-90
+        </a>
+        <a href="mailto:info@gasinpex.kz" class="hover:text-[#E60000] transition flex items-center gap-1.5">
+          <i class="fas fa-envelope text-[#E60000] text-xs"></i> info@gasinpex.kz
+        </a>
+        <span class="hidden md:flex items-center gap-1.5 text-gray-300">
+          <i class="fas fa-map-marker-alt text-[#E60000] text-xs"></i> г. Темиртау, ул. Амангельды, 112
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- HEADER + NAVIGATION                                           -->
+  <!-- ============================================================ -->
+  <header class="sticky top-0 z-50 bg-white shadow-md" x-data="{ mobileOpen: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#E60000] rounded-lg flex items-center justify-center text-white text-lg sm:text-xl font-bold transition group-hover:bg-[#cc0000]">
+            <i class="fas fa-fire"></i>
+          </div>
+          <div class="leading-tight">
+            <span class="block text-lg sm:text-xl font-bold text-[#001A33]">Gas Inpex</span>
+            <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider">ТОО «Gas Inpex»</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav (lg+) -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+          <a href="#" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-[#001A33] active" data-i18n="navHome">Главная</a>
+          <a href="#services" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]" data-i18n="navServices">Услуги</a>
+          <a href="#portfolio" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]" data-i18n="navPortfolio">Объекты</a>
+          <a href="#certificates" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]" data-i18n="navCertificates">Сертификаты</a>
+          <a href="#partners" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]" data-i18n="navPartners">Партнеры</a>
+          <!-- Каталог с dropdown -->
+          <div class="group relative px-2 xl:px-3 py-2">
+            <a href="#" class="nav-link text-sm font-medium text-gray-600 hover:text-[#001A33] flex items-center gap-1" data-i18n="navCatalog">
+              Каталог <i class="fas fa-chevron-down text-[10px] transition group-hover:rotate-180"></i>
+            </a>
+            <div class="dropdown-content absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
+              <a href="#" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-industry w-5 text-[#001A33]"></i> Промышленное газовое оборудование</a>
+              <a href="#" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-fire-burner w-5 text-[#001A33]"></i> Бытовые котлы</a>
+              <a href="#" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-home w-5 text-[#001A33]"></i> Системы «Умный дом»</a>
+              <a href="#" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-microchip w-5 text-[#001A33]"></i> Оборудование КИПиА</a>
+            </div>
+          </div>
+          <a href="#contacts" class="px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]" data-i18n="navContacts">Контакты</a>
+          <!-- CTA Button -->
+          <a href="#contacts" class="ml-3 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 flex items-center gap-2" data-i18n="navCta">
+            <i class="fas fa-phone-alt"></i> Связаться
+          </a>
+        </nav>
+
+        <!-- Hamburger (mobile < lg) -->
+        <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg text-[#001A33] hover:bg-gray-100 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path x-show="mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="lg:hidden border-t border-gray-100" x-show="mobileOpen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
+        <a href="#" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#001A33] bg-gray-50" data-i18n="navHome">Главная</a>
+        <a href="#services" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50" data-i18n="navServices">Услуги</a>
+        <a href="#portfolio" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50" data-i18n="navPortfolio">Объекты</a>
+        <a href="#certificates" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50" data-i18n="navCertificates">Сертификаты</a>
+        <a href="#partners" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50" data-i18n="navPartners">Партнеры</a>
+        <!-- Каталог mobile accordion -->
+        <div x-data="{ catOpen: false }">
+          <button @click="catOpen = !catOpen" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50" data-i18n="navCatalog">
+            Каталог <i class="fas fa-chevron-down text-xs transition" :class="catOpen ? 'rotate-180' : ''"></i>
+          </button>
+          <div x-show="catOpen" class="ml-4 mt-1 space-y-1">
+            <a href="#" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-industry w-5"></i> Промышленное газовое оборудование</a>
+            <a href="#" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-fire-burner w-5"></i> Бытовые котлы</a>
+            <a href="#" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-home w-5"></i> Системы «Умный дом»</a>
+            <a href="#" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-microchip w-5"></i> Оборудование КИПиА</a>
+          </div>
+        </div>
+        <a href="#contacts" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50" data-i18n="navContacts">Контакты</a>
+        <a href="#contacts" class="block mt-3 px-5 py-3 bg-[#E60000] text-white text-sm font-semibold rounded-lg text-center" data-i18n="navCta">Связаться</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- HERO SLIDER (Alpine.js Carousel)                               -->
+  <!-- ============================================================ -->
+  <section class="relative overflow-hidden bg-[#001A33]" x-data="heroSlider()" x-init="init()">
+    <!-- Slides container -->
+    <div class="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[85vh] min-h-[420px]">
+      <template x-for="(slide, i) in slides" :key="i">
+        <div
+          class="absolute inset-0 w-full h-full hero-fade"
+          x-show="current === i"
+          x-transition:enter.duration.600ms
+        >
+          <!-- Background overlay gradient -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#001A33]/90 via-[#001A33]/70 to-transparent z-10"></div>
+          <!-- Background image placeholder (gradient) -->
+          <div class="absolute inset-0" :style="'background: ' + slide.bg"></div>
+          <!-- Content -->
+          <div class="relative z-20 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl">
+              <span class="inline-block px-4 py-1.5 bg-[#E60000] text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4" x-text="slide.tag"></span>
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5" x-text="slide.title"></h1>
+              <p class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl" x-text="slide.desc"></p>
+              <a href="#services" class="inline-flex items-center gap-2 px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-xl shadow-red-500/20 text-sm sm:text-base" data-i18n="heroMoreBtn">
+                ПОДРОБНЕЕ <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Dots navigation -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+      <template x-for="(slide, i) in slides" :key="i">
+        <button
+          @click="current = i"
+          :class="current === i ? 'bg-[#E60000] w-8' : 'bg-white/40 w-3 hover:bg-white/70'"
+          class="h-3 rounded-full transition-all duration-300"
+          :aria-label="'Слайд ' + (i + 1)"
+        ></button>
+      </template>
+    </div>
+
+    <!-- Arrows -->
+    <button @click="prev()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition border border-white/20">
+      <i class="fas fa-chevron-left text-sm sm:text-base"></i>
+    </button>
+    <button @click="next()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition border border-white/20">
+      <i class="fas fa-chevron-right text-sm sm:text-base"></i>
+    </button>
+
+    <!-- Alpine.js component logic -->
+    <script>
+      function heroSlider() {
+        return {
+          current: 0,
+          slides: [
+            {
+              title: 'Инжиниринг и Автоматизация',
+              desc: 'Проектирование и внедрение систем автоматизации технологических процессов (АСУ ТП) для промышленных объектов любой сложности.',
+              tag: 'АСУ ТП',
+              bg: 'linear-gradient(135deg, #0a2a4a 0%, #1a4a6a 50%, #2a6a8a 100%)'
+            },
+            {
+              title: 'Поставка газового оборудования',
+              desc: 'Широкий ассортимент промышленного и бытового газового оборудования от ведущих мировых производителей.',
+              tag: 'Оборудование',
+              bg: 'linear-gradient(135deg, #1a3a2a 0%, #2a5a3a 50%, #3a7a4a 100%)'
+            },
+            {
+              title: 'Проектирование систем Умного дома',
+              desc: 'Комплексные решения автоматизации жилых помещений: климат-контроль, освещение, безопасность и мультимедиа.',
+              tag: 'Smart Home',
+              bg: 'linear-gradient(135deg, #2a1a3a 0%, #4a2a5a 50%, #6a3a7a 100%)'
+            },
+            {
+              title: 'Гарантийное и сервисное обслуживание',
+              desc: 'Оперативное сервисное обслуживание, ремонт и техническая поддержка всего поставляемого оборудования.',
+              tag: 'Сервис',
+              bg: 'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a4a3a 100%)'
+            }
+          ],
+          timer: null,
+          init() {
+            this.startTimer();
+          },
+          startTimer() {
+            this.timer = setInterval(() => { this.next(); }, 5000);
+          },
+          next() {
+            clearInterval(this.timer);
+            this.current = (this.current + 1) % this.slides.length;
+            this.startTimer();
+          },
+          prev() {
+            clearInterval(this.timer);
+            this.current = (this.current - 1 + this.slides.length) % this.slides.length;
+            this.startTimer();
+          }
+        }
+      }
+    </script>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- QUICK LINKS (overlapping hero)                                 -->
+  <!-- ============================================================ -->
+  <section class="quick-links-row max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <a href="#services" class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#E60000] transition-colors">
+          <i class="fas fa-cogs text-xl sm:text-2xl text-[#001A33] group-hover:text-white transition-colors"></i>
+        </div>
+        <h3 class="text-sm sm:text-base font-bold text-[#001A33] group-hover:text-[#E60000] transition-colors" data-i18n="quickServices">Наши услуги</h3>
+        <p class="text-xs text-gray-500 mt-1" data-i18n="quickServicesSub">Полный спектр</p>
+      </a>
+      <a href="#" class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#E60000] transition-colors">
+          <i class="fas fa-tools text-xl sm:text-2xl text-[#001A33] group-hover:text-white transition-colors"></i>
+        </div>
+        <h3 class="text-sm sm:text-base font-bold text-[#001A33] group-hover:text-[#E60000] transition-colors" data-i18n="quickEquipment">Оборудование</h3>
+        <p class="text-xs text-gray-500 mt-1" data-i18n="quickEquipmentSub">Газовое и КИПиА</p>
+      </a>
+      <a href="#services" class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#E60000] transition-colors">
+          <i class="fas fa-drafting-compass text-xl sm:text-2xl text-[#001A33] group-hover:text-white transition-colors"></i>
+        </div>
+        <h3 class="text-sm sm:text-base font-bold text-[#001A33] group-hover:text-[#E60000] transition-colors" data-i18n="quickDesign">Проектирование</h3>
+        <p class="text-xs text-gray-500 mt-1" data-i18n="quickDesignSub">Систем любой сложности</p>
+      </a>
+      <a href="#" class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-[#E60000] transition-colors">
+          <i class="fas fa-headset text-xl sm:text-2xl text-[#001A33] group-hover:text-white transition-colors"></i>
+        </div>
+        <h3 class="text-sm sm:text-base font-bold text-[#001A33] group-hover:text-[#E60000] transition-colors" data-i18n="quickService">Обслуживание</h3>
+        <p class="text-xs text-gray-500 mt-1" data-i18n="quickServiceSub">Гарантийное и сервисное</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ABOUT SECTION                                                  -->
+  <!-- ============================================================ -->
+  <section class="py-16 sm:py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <!-- Left: Text -->
+        <div>
+          <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest" data-i18n="aboutBadge">О компании</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#001A33] mt-3 mb-6 leading-tight" data-i18n="aboutTitle">
+            ТОО «Gas Inpex» — <br class="hidden sm:block" />ваш надёжный партнёр
+          </h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              Компания <strong class="text-[#001A33]">Gas Inpex</strong> основана в 2010 году и является одним из ведущих поставщиков промышленного газового оборудования и систем автоматизации в Республике Казахстан.
+            </p>
+            <p>
+              Мы специализируемся на проектировании и внедрении <strong class="text-[#001A33]">АСУ ТП</strong>, систем «Умный дом», а также на комплексной поставке котельного оборудования, газогорелочных устройств, запорно-регулирующей арматуры и КИПиА.
+            </p>
+            <p>
+              За 15 лет работы我们 реализовали более <strong class="text-[#E60000]">230 проектов</strong> по всему Казахстану, сотрудничая с ведущими промышленными предприятиями, коммерческими и частными заказчиками.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-6 mt-8">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-[#E60000] text-lg"></i>
+              <span class="text-sm text-gray-600" data-i18n="aboutLicense">Лицензия ГСЛ № 12345</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-[#E60000] text-lg"></i>
+              <span class="text-sm text-gray-600" data-i18n="aboutIso">Сертификат ISO 9001</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-[#E60000] text-lg"></i>
+              <span class="text-sm text-gray-600" data-i18n="aboutAtameken">Член НПП «Атамекен»</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: YouTube embed placeholder -->
+        <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-200 relative group">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#001A33]/20 to-transparent"></div>
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Gas Inpex — видео презентация"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SERVICES GRID                                                  -->
+  <!-- ============================================================ -->
+  <section id="services" class="py-16 sm:py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-12 sm:mb-16">
+        <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest" data-i18n="servicesBadge">Направления</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#001A33] mt-3" data-i18n="servicesTitle">Перечень предоставляемых услуг</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto" data-i18n="servicesDesc">Комплексные решения от проектирования до ввода в эксплуатацию и сервисного обслуживания</p>
+      </div>
+
+      <!-- Engineering & Automation -->
+      <div class="mb-14">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-[#E60000] rounded-lg flex items-center justify-center text-white text-lg">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-[#001A33]" data-i18n="servicesEngTitle">Инжиниринг и автоматизация</h3>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <!-- Service Card 1 -->
+          <div class="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+            <div class="w-14 h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E60000]/10 transition-colors">
+              <i class="fas fa-cubes text-2xl text-[#001A33] group-hover:text-[#E60000] transition-colors"></i>
+            </div>
+            <h4 class="text-lg font-bold text-[#001A33] mb-2" data-i18n="sCard1Title">Проектирование систем</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">Разработка проектной и рабочей документации для систем автоматизации, диспетчеризации и управления технологическими процессами.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMore">Подробнее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+          <!-- Service Card 2 -->
+          <div class="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+            <div class="w-14 h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E60000]/10 transition-colors">
+              <i class="fas fa-home text-2xl text-[#001A33] group-hover:text-[#E60000] transition-colors"></i>
+            </div>
+            <h4 class="text-lg font-bold text-[#001A33] mb-2" data-i18n="sCard2Title">Системы «Умный дом»</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">Интегрированные решения автоматизации жилых помещений: климат-контроль, освещение, безопасность, мультимедиа и энергоменеджмент.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMore">Подробнее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+          <!-- Service Card 3 -->
+          <div class="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+            <div class="w-14 h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E60000]/10 transition-colors">
+              <i class="fas fa-hard-hat text-2xl text-[#001A33] group-hover:text-[#E60000] transition-colors"></i>
+            </div>
+            <h4 class="text-lg font-bold text-[#001A33] mb-2" data-i18n="sCard3Title">СМР и ПНР</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">Строительно-монтажные и пусконаладочные работы «под ключ» с гарантией качества и соблюдением сроков.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMore">Подробнее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equipment Supply & Installation -->
+      <div>
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-[#001A33] rounded-lg flex items-center justify-center text-white text-lg">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-[#001A33]" data-i18n="servicesSupplyTitle">Поставка оборудования и монтаж</h3>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <!-- Service Card 4 -->
+          <div class="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+            <div class="w-14 h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E60000]/10 transition-colors">
+              <i class="fas fa-industry text-2xl text-[#001A33] group-hover:text-[#E60000] transition-colors"></i>
+            </div>
+            <h4 class="text-lg font-bold text-[#001A33] mb-2" data-i18n="sCard4Title">Промышленные котельные</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">Поставка и монтаж промышленных котельных установок, газогорелочных устройств, теплообменников и вспомогательного оборудования.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMore">Подробнее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+          <!-- Service Card 5 -->
+          <div class="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1">
+            <div class="w-14 h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E60000]/10 transition-colors">
+              <i class="fas fa-fire-burner text-2xl text-[#001A33] group-hover:text-[#E60000] transition-colors"></i>
+            </div>
+            <h4 class="text-lg font-bold text-[#001A33] mb-2" data-i18n="sCard5Title">Бытовые котлы</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">Широкий выбор настенных и напольных газовых котлов ведущих брендов (Ariston, Baxi, Vaillant, Buderus) с установкой и настройкой.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMore">Подробнее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+          <!-- Service Card 6 -->
+          <div class="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#E60000]/20 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+            <div class="w-14 h-14 bg-[#001A33]/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E60000]/10 transition-colors">
+              <i class="fas fa-thermometer-half text-2xl text-[#001A33] group-hover:text-[#E60000] transition-colors"></i>
+            </div>
+            <h4 class="text-lg font-bold text-[#001A33] mb-2" data-i18n="sCard6Title">Датчики утечки газа и климат-контроль</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">Системы газового мониторинга, сигнализации утечки, термостаты и контроллеры для автоматического управления микроклиматом.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMore">Подробнее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PORTFOLIO / COUNTER                                            -->
+  <!-- ============================================================ -->
+  <section id="portfolio" class="py-16 sm:py-20 lg:py-28 bg-[#001A33] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Counter -->
+        <div>
+          <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest" data-i18n="portfolioBadge">Наши достижения</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 leading-tight" data-i18n="portfolioTitle">
+            Более <span class="text-[#E60000]" x-data="counter(230)" x-init="startCounter()" x-text="display">230</span> объектов завершено
+          </h2>
+          <p class="text-gray-400 mt-6 text-lg leading-relaxed" data-i18n="portfolioDesc">
+            Каждый проект — это результат слаженной работы команды инженеров, проектировщиков и монтажников. Мы гордимся качеством и надёжностью каждого реализованного объекта.
+          </p>
+          <div class="grid grid-cols-3 gap-6 mt-10">
+            <div class="text-center">
+              <span class="text-3xl sm:text-4xl font-bold text-[#E60000]" x-data="counter(15)" x-init="startCounter()" x-text="display">15</span>
+              <p class="text-sm text-gray-400 mt-1" data-i18n="counterYears">Лет на рынке</p>
+            </div>
+            <div class="text-center">
+              <span class="text-3xl sm:text-4xl font-bold text-[#E60000]" x-data="counter(85)" x-init="startCounter()" x-text="display">85</span>
+              <p class="text-sm text-gray-400 mt-1" data-i18n="counterPartners">Партнёров</p>
+            </div>
+            <div class="text-center">
+              <span class="text-3xl sm:text-4xl font-bold text-[#E60000]" x-data="counter(14)" x-init="startCounter()" x-text="display">14</span>
+              <p class="text-sm text-gray-400 mt-1" data-i18n="counterCities">Городов присутствия</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Project cards carousel-like grid -->
+        <div class="grid grid-cols-2 gap-3 sm:gap-4">
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-blue-900 to-blue-700 shadow-xl">
+            <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-industry"></i></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+              <span class="text-xs text-gray-300">2024</span>
+              <h4 class="text-sm sm:text-base font-bold text-white">Котельная ТОО «Qarmet»</h4>
+            </div>
+          </div>
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-green-900 to-green-700 shadow-xl">
+            <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-home"></i></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+              <span class="text-xs text-gray-300">2024</span>
+              <h4 class="text-sm sm:text-base font-bold text-white">ЖК «Астана» Умный дом</h4>
+            </div>
+          </div>
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-purple-900 to-purple-700 shadow-xl">
+            <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-microchip"></i></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+              <span class="text-xs text-gray-300">2023</span>
+              <h4 class="text-sm sm:text-base font-bold text-white">АСУ ТП ТОО «KazMinerals»</h4>
+            </div>
+          </div>
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-red-900 to-red-700 shadow-xl">
+            <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-fire"></i></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+              <span class="text-xs text-gray-300">2023</span>
+              <h4 class="text-sm sm:text-base font-bold text-white">Газоснабжение ТОО «Steel Corp»</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Counter Alpine.js helper -->
+    <script>
+      function counter(target) {
+        return {
+          value: 0,
+          display: 0,
+          startCounter() {
+            this.value = 0;
+            const step = Math.ceil(target / 80);
+            const interval = setInterval(() => {
+              this.value += step;
+              if (this.value >= target) {
+                this.value = target;
+                clearInterval(interval);
+              }
+              this.display = this.value;
+            }, 25);
+          }
+        }
+      }
+    </script>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CERTIFICATES                                                   -->
+  <!-- ============================================================ -->
+  <section id="certificates" class="py-16 sm:py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest" data-i18n="certBadge">Документы</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#001A33] mt-3" data-i18n="certTitle">Сертификаты и лицензии</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto" data-i18n="certDesc">Вся деятельность компании подтверждена соответствующими лицензиями и сертификатами качества</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div class="group aspect-[3/4] bg-gray-50 rounded-xl border border-gray-200 hover:border-[#E60000]/30 transition-all flex flex-col items-center justify-center p-4 text-center hover:shadow-lg cursor-pointer">
+          <i class="fas fa-file-alt text-4xl text-gray-300 group-hover:text-[#E60000] transition-colors mb-3"></i>
+          <span class="text-xs text-gray-500 font-medium" data-i18n="certIso">Сертификат ISO 9001</span>
+        </div>
+        <div class="group aspect-[3/4] bg-gray-50 rounded-xl border border-gray-200 hover:border-[#E60000]/30 transition-all flex flex-col items-center justify-center p-4 text-center hover:shadow-lg cursor-pointer">
+          <i class="fas fa-file-alt text-4xl text-gray-300 group-hover:text-[#E60000] transition-colors mb-3"></i>
+          <span class="text-xs text-gray-500 font-medium" data-i18n="certLicense">Лицензия ГСЛ № 12345</span>
+        </div>
+        <div class="group aspect-[3/4] bg-gray-50 rounded-xl border border-gray-200 hover:border-[#E60000]/30 transition-all flex flex-col items-center justify-center p-4 text-center hover:shadow-lg cursor-pointer">
+          <i class="fas fa-file-alt text-4xl text-gray-300 group-hover:text-[#E60000] transition-colors mb-3"></i>
+          <span class="text-xs text-gray-500 font-medium" data-i18n="certConformity">Сертификат соответствия</span>
+        </div>
+        <div class="group aspect-[3/4] bg-gray-50 rounded-xl border border-gray-200 hover:border-[#E60000]/30 transition-all flex flex-col items-center justify-center p-4 text-center hover:shadow-lg cursor-pointer">
+          <i class="fas fa-file-alt text-4xl text-gray-300 group-hover:text-[#E60000] transition-colors mb-3"></i>
+          <span class="text-xs text-gray-500 font-medium" data-i18n="certInstall">Разрешение на монтаж</span>
+        </div>
+        <div class="group aspect-[3/4] bg-gray-50 rounded-xl border border-gray-200 hover:border-[#E60000]/30 transition-all flex flex-col items-center justify-center p-4 text-center hover:shadow-lg cursor-pointer">
+          <i class="fas fa-file-alt text-4xl text-gray-300 group-hover:text-[#E60000] transition-colors mb-3"></i>
+          <span class="text-xs text-gray-500 font-medium" data-i18n="certSro">Свидетельство СРО</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PARTNERS (Infinite Horizontal Scroll)                          -->
+  <!-- ============================================================ -->
+  <section id="partners" class="py-14 sm:py-18 bg-gray-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+      <div class="text-center">
+        <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest" data-i18n="partnersBadge">Партнёры</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#001A33] mt-3" data-i18n="partnersTitle">Нам доверяют ведущие бренды</h2>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+      <div class="partners-track flex items-center gap-16 sm:gap-24 py-4">
+        <!-- First set -->
+        <div class="flex items-center gap-16 sm:gap-24">
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fab fa-aws text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Hitachi</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-car text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Toyota</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-tractor text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Caterpillar</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-fire text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Ariston</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-industry text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Qarmet</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-microchip text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Siemens</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-cogs text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Baxi</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-wifi text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Vaillant</span>
+          </div>
+        </div>
+        <!-- Duplicate for seamless scroll -->
+        <div class="flex items-center gap-16 sm:gap-24">
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fab fa-aws text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Hitachi</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-car text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Toyota</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-tractor text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Caterpillar</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-fire text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Ariston</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-industry text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Qarmet</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-microchip text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Siemens</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-cogs text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Baxi</span>
+          </div>
+          <div class="flex flex-col items-center text-gray-400 hover:text-[#001A33] transition-colors min-w-[100px]">
+            <i class="fas fa-wifi text-4xl sm:text-5xl"></i>
+            <span class="text-xs mt-2 font-semibold">Vaillant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- NEWS SECTION                                                    -->
+  <!-- ============================================================ -->
+  <section id="news" class="py-16 sm:py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest" data-i18n="newsBadge">Новости</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#001A33] mt-3" data-i18n="newsTitle">Последние события</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto" data-i18n="newsDesc">Будьте в курсе новостей компании, новых проектов и актуальных событий отрасли</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- News Card 1 -->
+        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100">
+          <div class="h-48 bg-gradient-to-br from-blue-800 to-blue-600 relative flex items-center justify-center text-white/20 text-5xl">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <div class="p-5 sm:p-6">
+            <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+              <i class="fas fa-calendar-alt"></i>
+              <span>15 марта 2025</span>
+              <span class="text-gray-300">|</span>
+              <span class="text-[#E60000]">Новый проект</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#001A33] mb-2 group-hover:text-[#E60000] transition-colors">Запуск котельной на ТОО «Qarmet»</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Завершён монтаж и пусконаладка промышленной котельной мощностью 15 МВт для металлургического комбината.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMoreNews">Читать далее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+        </article>
+        <!-- News Card 2 -->
+        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100">
+          <div class="h-48 bg-gradient-to-br from-purple-800 to-purple-600 relative flex items-center justify-center text-white/20 text-5xl">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="p-5 sm:p-6">
+            <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+              <i class="fas fa-calendar-alt"></i>
+              <span>28 февраля 2025</span>
+              <span class="text-gray-300">|</span>
+              <span class="text-[#E60000]">Smart Home</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#001A33] mb-2 group-hover:text-[#E60000] transition-colors">Умный дом для ЖК «Астана»</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Подписан договор на автоматизацию 120 квартир в новом жилом комплексе столицы.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMoreNews">Читать далее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+        </article>
+        <!-- News Card 3 -->
+        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100 md:col-span-2 lg:col-span-1">
+          <div class="h-48 bg-gradient-to-br from-green-800 to-green-600 relative flex items-center justify-center text-white/20 text-5xl">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="p-5 sm:p-6">
+            <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+              <i class="fas fa-calendar-alt"></i>
+              <span>10 февраля 2025</span>
+              <span class="text-gray-300">|</span>
+              <span class="text-[#E60000]">Событие</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#001A33] mb-2 group-hover:text-[#E60000] transition-colors">Gas Inpex — лауреат премии «Лучший поставщик 2024»</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Компания отмечена наградой за высокое качество услуг и вклад в развитие газовой отрасли Казахстана.</p>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-[#E60000] mt-4 hover:gap-3 transition-all" data-i18n="readMoreNews">Читать далее <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT / CTA BANNER                                           -->
+  <!-- ============================================================ -->
+  <section id="contacts" class="py-16 sm:py-20 bg-[#001A33]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4" data-i18n="contactTitle">Готовы к сотрудничеству?</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg" data-i18n="contactDesc">Оставьте заявку — наши специалисты свяжутся с вами в ближайшее время и предложат оптимальное решение для вашего объекта</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:+77213567890" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-base">
+          <i class="fas fa-phone-alt"></i> +7 (7213) 56-78-90
+        </a>
+        <a href="mailto:info@gasinpex.kz" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/20 text-base">
+          <i class="fas fa-envelope"></i> info@gasinpex.kz
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                         -->
+  <!-- ============================================================ -->
+  <footer class="bg-[#001A33] border-t border-white/10 pt-12 sm:pt-16 pb-24 sm:pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+
+        <!-- Column 1: Logo + description -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-[#E60000] rounded-lg flex items-center justify-center text-white font-bold">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div>
+              <span class="block text-lg font-bold text-white">Gas Inpex</span>
+              <span class="block text-xs text-gray-400">ТОО «Gas Inpex»</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4" data-i18n="footerDesc">
+            Инжиниринг, автоматизация и поставка газового оборудования в Казахстане с 2010 года.
+          </p>
+          <p class="text-xs text-gray-500">© 2024 Gas Inpex. Все права защищены.</p>
+        </div>
+
+        <!-- Column 2: Contacts -->
+        <div>
+          <h4 class="text-white font-bold text-base mb-4" data-i18n="footerContactsTitle">Контакты</h4>
+          <div class="space-y-3 text-sm text-gray-400">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-[#E60000] mt-1"></i>
+              <span>г. Темиртау,<br />ул. Амангельды, 112</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-phone-alt text-[#E60000]"></i>
+              <a href="tel:+77213567890" class="hover:text-white transition">+7 (7213) 56-78-90</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-envelope text-[#E60000]"></i>
+              <a href="mailto:info@gasinpex.kz" class="hover:text-white transition">info@gasinpex.kz</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-clock text-[#E60000]"></i>
+              <span>Пн–Пт: 09:00–18:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Quick links -->
+        <div>
+          <h4 class="text-white font-bold text-base mb-4" data-i18n="footerQuickLinks">Быстрые ссылки</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> <span data-i18n="navHome">Главная</span></a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> <span data-i18n="navServices">Услуги</span></a></li>
+            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> <span data-i18n="navPortfolio">Объекты</span></a></li>
+            <li><a href="#certificates" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> <span data-i18n="navCertificates">Сертификаты</span></a></li>
+            <li><a href="#partners" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> <span data-i18n="navPartners">Партнеры</span></a></li>
+            <li><a href="#contacts" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> <span data-i18n="navContacts">Контакты</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Catalog -->
+        <div>
+          <h4 class="text-white font-bold text-base mb-4" data-i18n="footerCatalog">Каталог</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Промышленное газовое оборудование</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Бытовые котлы</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Системы «Умный дом»</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Оборудование КИПиА</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2024 ТОО «Gas Inpex». Все права защищены.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-white transition">Политика конфиденциальности</a>
+          <a href="#" class="hover:text-white transition">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- SCROLL TO TOP BUTTON                                           -->
+  <!-- ============================================================ -->
+  <button
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-[#E60000] text-white shadow-lg hover:bg-[#cc0000] transition flex items-center justify-center"
+    style="display:none"
+    id="scrollTopBtn"
+  >
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Scroll to top button visibility
+    window.addEventListener('scroll', function() {
+      const btn = document.getElementById('scrollTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+  </script>
+
+  <!-- ============================================================ -->
+  <!-- STICKY CTA FOR MOBILE                                          -->
+  <!-- ============================================================ -->
+  <div class="sticky-cta show lg:hidden bg-white border-t border-gray-200 shadow-2xl px-4 py-3 flex items-center justify-between">
+    <span class="text-sm font-semibold text-[#001A33]" data-i18n="stickyCtaText">Нужна консультация?</span>
+    <a href="tel:+77213567890" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition" data-i18n="stickyCtaBtn">
+      <i class="fas fa-phone-alt"></i> Вызвать инженера
+    </a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- EXTRA ALPINE: x-cloak handling                                  -->
+  <!-- ============================================================ -->
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
+
+  <!-- ============================================================ -->
+  <!-- I18N TRANSLATIONS SCRIPT                                      -->
+  <!-- ============================================================ -->
+  <script>
+    const translations = {
+      ru: {
+        langRu: 'Рус',
+        langEn: 'Eng',
+        langKk: 'Қаз',
+        navHome: 'Главная',
+        navServices: 'Услуги',
+        navPortfolio: 'Объекты',
+        navCertificates: 'Сертификаты',
+        navPartners: 'Партнеры',
+        navCatalog: 'Каталог',
+        navContacts: 'Контакты',
+        navCta: 'Связаться',
+        heroMoreBtn: 'ПОДРОБНЕЕ',
+        quickServices: 'Наши услуги',
+        quickServicesSub: 'Полный спектр',
+        quickEquipment: 'Оборудование',
+        quickEquipmentSub: 'Газовое и КИПиА',
+        quickDesign: 'Проектирование',
+        quickDesignSub: 'Систем любой сложности',
+        quickService: 'Обслуживание',
+        quickServiceSub: 'Гарантийное и сервисное',
+        aboutBadge: 'О компании',
+aboutTitle: 'ТОО «Gas Inpex» — <br class="hidden sm:block" />ваш надёжный партнёр',
+        aboutLicense: 'Лицензия ГСЛ № 12345',
+        aboutIso: 'Сертификат ISO 9001',
+        aboutAtameken: 'Член НПП «Атамекен»',
+        servicesBadge: 'Направления',
+        servicesTitle: 'Перечень предоставляемых услуг',
+        servicesDesc: 'Комплексные решения от проектирования до ввода в эксплуатацию и сервисного обслуживания',
+        servicesEngTitle: 'Инжиниринг и автоматизация',
+        servicesSupplyTitle: 'Поставка оборудования и монтаж',
+        sCard1Title: 'Проектирование систем',
+        sCard2Title: 'Системы «Умный дом»',
+        sCard3Title: 'СМР и ПНР',
+        sCard4Title: 'Промышленные котельные',
+        sCard5Title: 'Бытовые котлы',
+        sCard6Title: 'Датчики утечки газа и климат-контроль',
+        readMore: 'Подробнее',
+        portfolioBadge: 'Наши достижения',
+        portfolioTitle: 'Более \u003Cspan class=\"text-[#E60000]\"\u003E230\u003C/span\u003E объектов завершено',
+        portfolioDesc: 'Каждый проект — это результат слаженной работы команды инженеров, проектировщиков и монтажников. Мы гордимся качеством и надёжностью каждого реализованного объекта.',
+        counterYears: 'Лет на рынке',
+        counterPartners: 'Партнёров',
+        counterCities: 'Городов присутствия',
+        certBadge: 'Документы',
+        certTitle: 'Сертификаты и лицензии',
+        certDesc: 'Вся деятельность компании подтверждена соответствующими лицензиями и сертификатами качества',
+        certIso: 'Сертификат ISO 9001',
+        certLicense: 'Лицензия ГСЛ № 12345',
+        certConformity: 'Сертификат соответствия',
+        certInstall: 'Разрешение на монтаж',
+        certSro: 'Свидетельство СРО',
+        partnersBadge: 'Партнёры',
+        partnersTitle: 'Нам доверяют ведущие бренды',
+        newsBadge: 'Новости',
+        newsTitle: 'Последние события',
+        newsDesc: 'Будьте в курсе новостей компании, новых проектов и актуальных событий отрасли',
+        readMoreNews: 'Читать далее',
+        contactTitle: 'Готовы к сотрудничеству?',
+        contactDesc: 'Оставьте заявку — наши специалисты свяжутся с вами в ближайшее время и предложат оптимальное решение для вашего объекта',
+        footerDesc: 'Инжиниринг, автоматизация и поставка газового оборудования в Казахстане с 2010 года.',
+        footerContactsTitle: 'Контакты',
+        footerQuickLinks: 'Быстрые ссылки',
+        footerCatalog: 'Каталог',
+        stickyCtaText: 'Нужна консультация?',
+        stickyCtaBtn: 'Вызвать инженера'
+      },
+      en: {
+        langRu: 'Rus',
+        langEn: 'Eng',
+        langKk: 'Kaz',
+        navHome: 'Home',
+        navServices: 'Services',
+        navPortfolio: 'Projects',
+        navCertificates: 'Certificates',
+        navPartners: 'Partners',
+        navCatalog: 'Catalog',
+        navContacts: 'Contacts',
+        navCta: 'Contact us',
+        heroMoreBtn: 'LEARN MORE',
+        quickServices: 'Our Services',
+        quickServicesSub: 'Full range',
+        quickEquipment: 'Equipment',
+        quickEquipmentSub: 'Gas & Instrumentation',
+        quickDesign: 'Design',
+        quickDesignSub: 'Any complexity',
+        quickService: 'Service',
+        quickServiceSub: 'Warranty & maintenance',
+        aboutBadge: 'About Us',
+        aboutTitle: 'Gas Inpex LLP — \u003Cbr class=\"hidden sm:block\" /\u003Eyour reliable partner',
+        aboutLicense: 'License GSL No. 12345',
+        aboutIso: 'ISO 9001 Certificate',
+        aboutAtameken: 'Member of NPP «Atameken»',
+        servicesBadge: 'Directions',
+        servicesTitle: 'List of Services Provided',
+        servicesDesc: 'Comprehensive solutions from design to commissioning and service maintenance',
+        servicesEngTitle: 'Engineering & Automation',
+        servicesSupplyTitle: 'Equipment Supply & Installation',
+        sCard1Title: 'System Design',
+        sCard2Title: 'Smart Home Systems',
+        sCard3Title: 'Construction & Commissioning',
+        sCard4Title: 'Industrial Boilers',
+        sCard5Title: 'Domestic Boilers',
+        sCard6Title: 'Gas Leak Sensors & Climate Control',
+        readMore: 'Read more',
+        portfolioBadge: 'Our Achievements',
+        portfolioTitle: 'Over \u003Cspan class=\"text-[#E60000]\"\u003E230\u003C/span\u003E projects completed',
+        portfolioDesc: 'Every project is the result of coordinated work by a team of engineers, designers and installers. We are proud of the quality and reliability of each completed facility.',
+        counterYears: 'Years in market',
+        counterPartners: 'Partners',
+        counterCities: 'Cities of presence',
+        certBadge: 'Documents',
+        certTitle: 'Certificates & Licenses',
+        certDesc: 'All company activities are confirmed by relevant licenses and quality certificates',
+        certIso: 'ISO 9001 Certificate',
+        certLicense: 'License GSL No. 12345',
+        certConformity: 'Certificate of Conformity',
+        certInstall: 'Installation Permit',
+        certSro: 'SRO Certificate',
+        partnersBadge: 'Partners',
+        partnersTitle: 'Trusted by leading brands',
+        newsBadge: 'News',
+        newsTitle: 'Latest Events',
+        newsDesc: 'Stay up to date with company news, new projects and current industry events',
+        readMoreNews: 'Read more',
+        contactTitle: 'Ready to cooperate?',
+        contactDesc: 'Leave a request — our specialists will contact you shortly and offer the best solution for your facility',
+        footerDesc: 'Engineering, automation and supply of gas equipment in Kazakhstan since 2010.',
+        footerContactsTitle: 'Contacts',
+        footerQuickLinks: 'Quick Links',
+        footerCatalog: 'Catalog',
+        stickyCtaText: 'Need advice?',
+        stickyCtaBtn: 'Call an engineer'
+      },
+      kk: {
+        langRu: 'Рус',
+        langEn: 'Eng',
+        langKk: 'Қаз',
+        navHome: 'Басты бет',
+        navServices: 'Қызметтер',
+        navPortfolio: 'Нысандар',
+        navCertificates: 'Сертификаттар',
+        navPartners: 'Серіктестер',
+        navCatalog: 'Каталог',
+        navContacts: 'Байланыс',
+        navCta: 'Хабарласу',
+        heroMoreBtn: 'ТОЛЫҒЫРАҚ',
+        quickServices: 'Біздің қызметтер',
+        quickServicesSub: 'Толық спектр',
+        quickEquipment: 'Жабдықтар',
+        quickEquipmentSub: 'Газ және АСҚ',
+        quickDesign: 'Жобалау',
+        quickDesignSub: 'Кез келген күрделілік',
+        quickService: 'Қызмет көрсету',
+        quickServiceSub: 'Кепілдік және сервис',
+        aboutBadge: 'Компания туралы',
+        aboutTitle: '«Gas Inpex» ЖШС — \u003Cbr class=\"hidden sm:block\" /\u003Eсенімді серіктесіңіз',
+        aboutLicense: 'ГСЛ № 12345 лицензиясы',
+        aboutIso: 'ISO 9001 сертификаты',
+        aboutAtameken: '«Атамекен» ҰКП мүшесі',
+        servicesBadge: 'Бағыттар',
+        servicesTitle: 'Көрсетілетін қызметтер тізбесі',
+        servicesDesc: 'Жобалаудан іске қосуға және сервистік қызмет көрсетуге дейінгі кешенді шешімдер',
+        servicesEngTitle: 'Инжиниринг және автоматтандыру',
+        servicesSupplyTitle: 'Жабдықтарды жеткізу және монтаждау',
+        sCard1Title: 'Жүйелерді жобалау',
+        sCard2Title: «Ақылды үй» жүйелері',
+        sCard3Title: 'ҚҚЖ және ІҚЖ',
+        sCard4Title: 'Өнеркәсіптік қазандықтар',
+        sCard5Title: 'Тұрмыстық қазандықтар',
+        sCard6Title: 'Газ ағыны датчиктері және климат-бақылау',
+        readMore: 'Толығырақ',
+        portfolioBadge: 'Біздің жетістіктер',
+        portfolioTitle: '\u003Cspan class=\"text-[#E60000]\"\u003E230\u003C/span\u003E нысан аяқталды',
+        portfolioDesc: 'Әрбір жоба — инженерлер, жобалаушылар және монтажшылар тобының үйлесімді жұмысының нәтижесі. Біз әрбір аяқталған нысанның сапасы мен сенімділігін мақтан тұтамыз.',
+        counterYears: 'Нарықтағы жылдар',
+        counterPartners: 'Серіктестер',
+        counterCities: 'Қатысу қалалары',
+        certBadge: 'Құжаттар',
+        certTitle: 'Сертификаттар мен лицензиялар',
+        certDesc: 'Компанияның барлық қызметі тиісті лицензиялармен және сапа сертификаттарымен расталған',
+        certIso: 'ISO 9001 сертификаты',
+        certLicense: 'ГСЛ № 12345 лицензиясы',
+        certConformity: 'Сәйкестік сертификаты',
+        certInstall: 'Монтаждауға рұқсат',
+        certSro: 'СРО куәлігі',
+        partnersBadge: 'Серіктестер',
+        partnersTitle: 'Жетекші брендтер сенім артады',
+        newsBadge: 'Жаңалықтар',
+        newsTitle: 'Соңғы оқиғалар',
+        newsDesc: 'Компания жаңалықтарынан, жаңа жобалардан және саладағы өзекті оқиғалардан хабардар болыңыз',
+        readMoreNews: 'Ары қарай оқу',
+        contactTitle: 'Ынтымақтастыққа дайынсыз ба?',
+        contactDesc: 'Өтініш қалдырыңыз — біздің мамандар жақын арада сізбен байланысып, нысаныңыз үшін оңтайлы шешім ұсынады',
+        footerDesc: 'Қазақстанда 2010 жылдан бері инжиниринг, автоматтандыру және газ жабдықтарын жеткізу.',
+        footerContactsTitle: 'Байланыс',
+        footerQuickLinks: 'Жылдам сілтемелер',
+        footerCatalog: 'Каталог',
+        stickyCtaText: 'Кеңес қажет пе?',
+        stickyCtaBtn: 'Инженерді шақыру'
+      }
+    };
+    function switchLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active-lang', btn.dataset.lang === lang);
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('text-[#E60000]', 'font-semibold');
+          btn.classList.remove('text-gray-300', 'hover:text-white');
+        } else {
+          btn.classList.remove('text-[#E60000]', 'font-semibold');
+          btn.classList.add('text-gray-300', 'hover:text-white');
+        }
+      });
+      // Update html lang attribute
+      document.documentElement.lang = lang === 'kk' ? 'kz' : lang;
+    }
+    // Set 'lang-btn' class on initial load for active-lang styling
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.dataset.lang === 'ru') {
+          btn.classList.add('text-[#E60000]', 'font-semibold');
+          btn.classList.remove('text-gray-300', 'hover:text-white');
+        } else {
+          btn.classList.add('text-gray-300', 'hover:text-white');
+          btn.classList.remove('text-[#E60000]', 'font-semibold');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
