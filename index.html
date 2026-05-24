@@ -137,8 +137,10 @@
       <div class="flex items-center justify-between" :class="scrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'">
 
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 group">
-          <img src="images/logo.svg" alt="Gas Inpex" class="transition-all" :class="scrolled ? 'h-8' : 'h-10'">
+        <a href="index.html" class="flex items-center gap-1 group">
+          <span class="font-black tracking-tight transition-all" :class="scrolled ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'">
+            <span class="text-[#E60000]">GAS</span> <span class="text-[#001A33]">INPEX</span>
+          </span>
         </a>
 
 <!-- Desktop Nav (lg+) -->
@@ -802,7 +804,8 @@
         <!-- Column 1: Logo + description -->
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <img src="images/logo.svg" alt="Gas Inpex" class="h-10 brightness-0 invert opacity-90">
+            <span class="text-xl font-black tracking-tight"><span class="text-[#E60000]">GAS</span> <span class="text-white">INPEX</span></span>
+            <p class="text-xs text-gray-400 mt-0.5">ТОО «Gas Inpex»</p>
           </div>
           <p class="text-sm text-gray-400 leading-relaxed mb-4" data-i18n="footerDesc">
             Инжиниринг, автоматизация и поставка газового оборудования в Казахстане с 2010 года.
