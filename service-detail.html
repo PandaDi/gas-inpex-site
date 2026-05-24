@@ -100,15 +100,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between" :class="scrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'">
 
-        <!-- Logo -->
+                <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2 group">
-          <div class="rounded-lg flex items-center justify-center text-white font-bold transition group-hover:bg-[#cc0000]" :class="scrolled ? 'w-8 h-8 sm:w-9 sm:h-9 text-base sm:text-lg bg-[#E60000]' : 'w-10 h-10 sm:w-12 sm:h-12 text-lg sm:text-xl bg-[#E60000]'">
-            <i class="fas fa-fire"></i>
-          </div>
-          <div class="leading-tight">
-            <span class="block font-bold text-[#001A33] transition-all" :class="scrolled ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'">Gas Inpex</span>
-            <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider" :class="scrolled ? 'hidden sm:block' : ''">ТОО «Gas Inpex»</span>
-          </div>
+          <img src="images/logo.svg" alt="Gas Inpex" class="transition-all" :class="scrolled ? 'h-8' : 'h-10'">
         </a>
 
         <!-- Desktop Nav (lg+) -->
