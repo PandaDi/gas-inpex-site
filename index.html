@@ -270,25 +270,25 @@
               title: 'Инжиниринг и Автоматизация',
               desc: 'Проектирование и внедрение систем автоматизации технологических процессов (АСУ ТП) для промышленных объектов любой сложности.',
               tag: 'АСУ ТП',
-              bg: 'linear-gradient(135deg, #0a2a4a 0%, #1a4a6a 50%, #2a6a8a 100%)'
+              bg: 'url(images/hero-industrial.jpg) center/cover no-repeat'
             },
             {
               title: 'Поставка газового оборудования',
               desc: 'Широкий ассортимент промышленного и бытового газового оборудования от ведущих мировых производителей.',
               tag: 'Оборудование',
-              bg: 'linear-gradient(135deg, #1a3a2a 0%, #2a5a3a 50%, #3a7a4a 100%)'
+              bg: 'url(images/hero-supply.jpg) center/cover no-repeat'
             },
             {
               title: 'Проектирование систем Умного дома',
               desc: 'Комплексные решения автоматизации жилых помещений: климат-контроль, освещение, безопасность и мультимедиа.',
               tag: 'Smart Home',
-              bg: 'linear-gradient(135deg, #2a1a3a 0%, #4a2a5a 50%, #6a3a7a 100%)'
+              bg: 'url(images/hero-smarthome.jpg) center/cover no-repeat'
             },
             {
               title: 'Гарантийное и сервисное обслуживание',
               desc: 'Оперативное сервисное обслуживание, ремонт и техническая поддержка всего поставляемого оборудования.',
               tag: 'Сервис',
-              bg: 'linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 50%, #7a4a3a 100%)'
+              bg: 'url(images/hero-service.jpg) center/cover no-repeat'
             }
           ],
           timer: null,
@@ -531,7 +531,7 @@
 
         <!-- Right: Project cards carousel-like grid -->
         <div class="grid grid-cols-2 gap-3 sm:gap-4">
-          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-blue-900 to-blue-700 shadow-xl">
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl" style="background: url('images/project-boiler-house.jpg') center/cover">
             <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-industry"></i></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
@@ -539,7 +539,7 @@
               <h4 class="text-sm sm:text-base font-bold text-white">Котельная ТОО «Qarmet»</h4>
             </div>
           </div>
-          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-green-900 to-green-700 shadow-xl">
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl" style="background: url('images/project-factory.jpg') center/cover">
             <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-home"></i></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
@@ -547,7 +547,7 @@
               <h4 class="text-sm sm:text-base font-bold text-white">ЖК «Астана» Умный дом</h4>
             </div>
           </div>
-          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-purple-900 to-purple-700 shadow-xl">
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl" style="background: url('images/project-automation.jpg') center/cover">
             <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-microchip"></i></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
@@ -555,7 +555,7 @@
               <h4 class="text-sm sm:text-base font-bold text-white">АСУ ТП ТОО «KazMinerals»</h4>
             </div>
           </div>
-          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-red-900 to-red-700 shadow-xl">
+          <div class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl" style="background: url('images/project-boiler-residential.jpg') center/cover">
             <div class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"><i class="fas fa-fire"></i></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
@@ -724,8 +724,9 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <!-- News Card 1 -->
         <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100">
-          <div class="h-48 bg-gradient-to-br from-blue-800 to-blue-600 relative flex items-center justify-center text-white/20 text-5xl">
-            <i class="fas fa-hard-hat"></i>
+          <div class="h-48 relative flex items-center justify-center text-white/20 text-5xl overflow-hidden" style="background: url('images/news-boiler-launch.jpg') center/cover">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <i class="fas fa-hard-hat relative z-10"></i>
           </div>
           <div class="p-5 sm:p-6">
             <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
@@ -741,8 +742,9 @@
         </article>
         <!-- News Card 2 -->
         <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100">
-          <div class="h-48 bg-gradient-to-br from-purple-800 to-purple-600 relative flex items-center justify-center text-white/20 text-5xl">
-            <i class="fas fa-home"></i>
+          <div class="h-48 relative flex items-center justify-center text-white/20 text-5xl overflow-hidden" style="background: url('images/news-smarthome-complex.jpg') center/cover">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <i class="fas fa-home relative z-10"></i>
           </div>
           <div class="p-5 sm:p-6">
             <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
@@ -758,8 +760,9 @@
         </article>
         <!-- News Card 3 -->
         <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100 md:col-span-2 lg:col-span-1">
-          <div class="h-48 bg-gradient-to-br from-green-800 to-green-600 relative flex items-center justify-center text-white/20 text-5xl">
-            <i class="fas fa-award"></i>
+          <div class="h-48 relative flex items-center justify-center text-white/20 text-5xl overflow-hidden" style="background: url('images/news-award.jpg') center/cover">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <i class="fas fa-award relative z-10"></i>
           </div>
           <div class="p-5 sm:p-6">
             <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
