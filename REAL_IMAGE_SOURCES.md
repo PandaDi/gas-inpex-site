@@ -56,3 +56,6 @@
 - `real-industrial-gasdetector-seitron-s100.jpg` — query: Seitron S100 gas detector product photo — source: https://airgas.my/wp-content/uploads/2025/04/1000024078.jpg
 - `real-industrial-gasdetector-senseco-sg200.jpg` — query: Senseco SG-200 CO detector product photo — source: https://ueeshop.ly200-cdn.com/u_file/UPBG/UPBG617/2512/05/products/SmokeandCOdetector2.jpg
 - `real-industrial-gasguard-pro.jpg` — query: GasGuard gas monitoring controller product photo — source: https://www.flamefast-gas-safety.co.uk/media/catalog/product/cache/f50a08cc25881947c274dc5f60e605ae/g/a/gasguard_rt01_2022.jpg
+
+## Object section images
+- `obj-pipeline.jpg` — thematic GRP / gas regulating station image — query: газорегуляторный пункт ГРП фото оборудование — source: https://gazapparat.ru/media/zoo/images/f2w_a089730215a97253f7b6362213e19d62.jpg
