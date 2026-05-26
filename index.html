@@ -28,132 +28,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <style>
-      /* ===== CUSTOM STYLES ===== */
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Partners infinite scroll */
-      @keyframes scrollPartners {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-      .partners-track {
-        animation: scrollPartners 30s linear infinite;
-        display: flex;
-        width: max-content;
-      }
-      .partners-track:hover {
-        animation-play-state: paused;
-      }
-
-      /* Hero slide transitions */
-      .hero-fade {
-        transition: opacity 0.6s ease-in-out;
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #6b7280;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #001a33;
-      }
-
-      /* Underline animation for nav links */
-      .nav-link::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: #e60000;
-        transition: width 0.3s ease;
-        margin-top: 2px;
-      }
-      .nav-link:hover::after,
-      .nav-link.active::after {
-        width: 100%;
-      }
-
-      /* Dropdown */
-      .dropdown-content {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(8px);
-        transition:
-          opacity 0.2s ease,
-          visibility 0.2s ease,
-          transform 0.2s ease;
-      }
-      .group:hover .dropdown-content {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      /* Counter animation */
-      .counter-value {
-        font-variant-numeric: tabular-nums;
-      }
-
-      /* Sticky CTA mobile */
-      .sticky-cta {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 9999;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-      }
-      .sticky-cta.show {
-        transform: translateY(0);
-      }
-
-      /* Quick links overlap hero */
-      .quick-links-row {
-        margin-top: -60px;
-        position: relative;
-        z-index: 10;
-      }
-      @media (max-width: 768px) {
-        .quick-links-row {
-          margin-top: -40px;
-        }
-      }
-
-      /* Nav hamburger */
-      .mobile-menu {
-        transition:
-          max-height 0.35s ease,
-          opacity 0.25s ease;
-      }
-      .mobile-menu.open {
-        max-height: 600px;
-        opacity: 1;
-      }
-      .mobile-menu.closed {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-      }
-    </style>
-
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="canonical" href="https://pandadi.github.io/gas-inpex-site/" />
     <meta property="og:type" content="website" />
     <meta
@@ -588,60 +463,7 @@
         <i class="fas fa-chevron-right text-sm sm:text-base"></i>
       </button>
 
-      <!-- Alpine.js component logic -->
-      <script>
-        function heroSlider() {
-          return {
-            current: 0,
-            slides: [
-              {
-                title: "Инжиниринг и Автоматизация",
-                desc: "Проектирование и внедрение систем автоматизации технологических процессов (АСУ ТП) для промышленных объектов любой сложности.",
-                tag: "АСУ ТП",
-                bg: "url(images/hero-industrial.jpg) center/cover no-repeat",
-              },
-              {
-                title: "Поставка газового оборудования",
-                desc: "Широкий ассортимент промышленного и бытового газового оборудования от ведущих мировых производителей.",
-                tag: "Оборудование",
-                bg: "url(images/hero-supply.jpg) center/cover no-repeat",
-              },
-              {
-                title: "Проектирование систем Умного дома",
-                desc: "Комплексные решения автоматизации жилых помещений: климат-контроль, освещение, безопасность и мультимедиа.",
-                tag: "Smart Home",
-                bg: "url(images/hero-smarthome.jpg) center/cover no-repeat",
-              },
-              {
-                title: "Гарантийное и сервисное обслуживание",
-                desc: "Оперативное сервисное обслуживание, ремонт и техническая поддержка всего поставляемого оборудования.",
-                tag: "Сервис",
-                bg: "url(images/hero-service.jpg) center/cover no-repeat",
-              },
-            ],
-            timer: null,
-            init() {
-              this.startTimer();
-            },
-            startTimer() {
-              this.timer = setInterval(() => {
-                this.next();
-              }, 5000);
-            },
-            next() {
-              clearInterval(this.timer);
-              this.current = (this.current + 1) % this.slides.length;
-              this.startTimer();
-            },
-            prev() {
-              clearInterval(this.timer);
-              this.current =
-                (this.current - 1 + this.slides.length) % this.slides.length;
-              this.startTimer();
-            },
-          };
-        }
-      </script>
+    <!-- Alpine.js component logic -->
     </section>
 
     <!-- ============================================================ -->
@@ -1232,10 +1054,7 @@
           <div class="grid grid-cols-2 gap-3 sm:gap-4">
             <div
               class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl"
-              style="
-                background: url(&quot;images/project-boiler-house.jpg&quot;)
-                  center/cover;
-              "
+              class="project-bg-boiler-house"
             >
               <div
                 class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"
@@ -1254,10 +1073,7 @@
             </div>
             <div
               class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl"
-              style="
-                background: url(&quot;images/project-factory.jpg&quot;)
-                  center/cover;
-              "
+              class="project-bg-factory"
             >
               <div
                 class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"
@@ -1276,10 +1092,7 @@
             </div>
             <div
               class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl"
-              style="
-                background: url(&quot;images/project-automation.jpg&quot;)
-                  center/cover;
-              "
+              class="project-bg-automation"
             >
               <div
                 class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"
@@ -1298,10 +1111,7 @@
             </div>
             <div
               class="relative group rounded-xl overflow-hidden aspect-[4/3] shadow-xl"
-              style="
-                background: url(&quot;images/project-boiler-residential.jpg&quot;)
-                  center/cover;
-              "
+              class="project-bg-boiler-residential"
             >
               <div
                 class="absolute inset-0 flex items-center justify-center text-white/30 text-4xl"
@@ -1323,26 +1133,7 @@
       </div>
 
       <!-- Counter Alpine.js helper -->
-      <script>
-        function counter(target) {
-          return {
-            value: 0,
-            display: 0,
-            startCounter() {
-              this.value = 0;
-              const step = Math.ceil(target / 80);
-              const interval = setInterval(() => {
-                this.value += step;
-                if (this.value >= target) {
-                  this.value = target;
-                  clearInterval(interval);
-                }
-                this.display = this.value;
-              }, 25);
-            },
-          };
-        }
-      </script>
+      
     </section>
 
     <!-- ============================================================ -->
@@ -1947,25 +1738,13 @@
     <!-- SCROLL TO TOP BUTTON                                           -->
     <!-- ============================================================ -->
     <button
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
       class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-[#E60000] text-white shadow-lg hover:bg-[#cc0000] transition flex items-center justify-center"
-      style="display: none"
-      id="scrollTopBtn"
+id="scrollTopBtn"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-      // Scroll to top button visibility
-      window.addEventListener("scroll", function () {
-        const btn = document.getElementById("scrollTopBtn");
-        if (window.scrollY > 400) {
-          btn.style.display = "flex";
-        } else {
-          btn.style.display = "none";
-        }
-      });
-    </script>
+    
 
     <!-- ============================================================ -->
     <!-- STICKY CTA FOR MOBILE                                          -->
@@ -1987,13 +1766,6 @@
       </a>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- EXTRA ALPINE: x-cloak handling                                  -->
-    <!-- ============================================================ -->
-    <style>
-      [x-cloak] {
-        display: none !important;
-      }
-    </style>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
