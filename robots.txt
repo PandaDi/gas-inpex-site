@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pandadi.github.io/gas-inpex-site/sitemap.xml
