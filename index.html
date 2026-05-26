@@ -227,9 +227,28 @@
               <span class="inline-block px-4 py-1.5 bg-[#E60000] text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4" x-text="slide.tag"></span>
               <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5" x-text="slide.title"></h1>
               <p class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl" x-text="slide.desc"></p>
-              <a href="services.html" class="inline-flex items-center gap-2 px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-xl shadow-red-500/20 text-sm sm:text-base" data-i18n="heroMoreBtn">
-                ПОДРОБНЕЕ <i class="fas fa-arrow-right text-sm"></i>
-              </a>
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a href="contacts.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-xl shadow-red-500/20 text-sm sm:text-base">
+                  Получить консультацию <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+                <a href="catalog-industrial.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/25 backdrop-blur-sm text-sm sm:text-base">
+                  Смотреть каталог <i class="fas fa-layer-group text-sm"></i>
+                </a>
+              </div>
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">15+ лет</div>
+                  <div class="text-xs text-gray-300">опыта в инженерии</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">230+ объектов</div>
+                  <div class="text-xs text-gray-300">по Казахстану</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">АСУ ТП + газ</div>
+                  <div class="text-xs text-gray-300">единый подрядчик</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -346,6 +365,37 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- WORK PROCESS / TRUST STRIP                                    -->
+  <!-- ============================================================ -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
+        <div class="grid md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          <div class="p-6 bg-[#001A33] text-white">
+            <div class="text-sm uppercase tracking-widest text-gray-300 mb-2">Как работаем</div>
+            <h2 class="text-2xl font-bold">Понятный путь от заявки до запуска</h2>
+          </div>
+          <div class="p-6 hover:bg-gray-50 transition">
+            <div class="w-10 h-10 rounded-lg bg-[#E60000]/10 text-[#E60000] flex items-center justify-center mb-4 font-bold">01</div>
+            <h3 class="font-bold text-[#001A33] mb-2">Обследование</h3>
+            <p class="text-sm text-gray-600">Выезд на объект, сбор данных, оценка текущего оборудования и задач.</p>
+          </div>
+          <div class="p-6 hover:bg-gray-50 transition">
+            <div class="w-10 h-10 rounded-lg bg-[#E60000]/10 text-[#E60000] flex items-center justify-center mb-4 font-bold">02</div>
+            <h3 class="font-bold text-[#001A33] mb-2">Подбор решения</h3>
+            <p class="text-sm text-gray-600">Коммерческое предложение, подбор КИПиА, газового оборудования и автоматики.</p>
+          </div>
+          <div class="p-6 hover:bg-gray-50 transition">
+            <div class="w-10 h-10 rounded-lg bg-[#E60000]/10 text-[#E60000] flex items-center justify-center mb-4 font-bold">03</div>
+            <h3 class="font-bold text-[#001A33] mb-2">Монтаж и запуск</h3>
+            <p class="text-sm text-gray-600">СМР, ПНР, программирование, обучение персонала и сервисное сопровождение.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- ABOUT SECTION                                                  -->
   <!-- ============================================================ -->
   <section class="py-16 sm:py-20 lg:py-28 bg-white">
@@ -385,17 +435,24 @@
           </div>
         </div>
 
-        <!-- Right: YouTube embed placeholder -->
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-200 relative group">
-          <div class="absolute inset-0 bg-gradient-to-br from-[#001A33]/20 to-transparent"></div>
-          <iframe
-            class="w-full h-full"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Gas Inpex — видео презентация"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+        <!-- Right: Presentation card -->
+        <div class="rounded-2xl overflow-hidden shadow-2xl bg-[#001A33] relative group">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="images/about-video-thumbnail.jpg" alt="Инженерные решения Gas Inpex" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#001A33]/90 via-[#001A33]/30 to-transparent"></div>
+            <div class="absolute left-6 right-6 bottom-6 text-white">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E60000] text-xs font-semibold uppercase tracking-wider mb-3">
+                <i class="fas fa-shield-alt"></i> Инженерный подход
+              </div>
+              <h3 class="text-2xl font-bold mb-2">От обследования до запуска объекта</h3>
+              <p class="text-sm text-gray-200">Подбираем оборудование, проектируем, монтируем, программируем АСУ ТП и сопровождаем после ввода в эксплуатацию.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 divide-x divide-white/10 bg-[#001A33] text-white">
+            <div class="p-4 text-center"><div class="text-lg font-bold text-[#E60000]">24/7</div><div class="text-xs text-gray-300">поддержка</div></div>
+            <div class="p-4 text-center"><div class="text-lg font-bold text-[#E60000]">Казахстан</div><div class="text-xs text-gray-300">выезд на объект</div></div>
+            <div class="p-4 text-center"><div class="text-lg font-bold text-[#E60000]">Гарантия</div><div class="text-xs text-gray-300">на работы</div></div>
+          </div>
         </div>
       </div>
     </div>
