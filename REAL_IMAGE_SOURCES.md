@@ -59,3 +59,9 @@
 
 ## Object section images
 - `obj-pipeline.jpg` — thematic GRP / gas regulating station image — query: газорегуляторный пункт ГРП фото оборудование — source: https://gazapparat.ru/media/zoo/images/f2w_a089730215a97253f7b6362213e19d62.jpg
+
+## Hero slider images
+- `hero-industrial.jpg` — industrial automation SCADA control room panel PLC Siemens photo — https://www.unicornglobalautomations.com/wp-content/uploads/2025/01/Best-Practices-of-PLC-Wiring.webp
+- `hero-service.jpg` — industrial engineer servicing gas equipment maintenance photo — http://tradeupmanitoba.com/wp-content/uploads/2018/08/IndustrialInstrumentMechanic_Banner.jpg
+- `hero-smarthome.jpg` — modern smart home interior with lighting and automation — https://digicrusader.com/wp-content/uploads/2025/05/smart-home-1-1296x700.jpg
+- `hero-supply.jpg` — gas equipment supply warehouse industrial pipes valves — https://www.pipingresources.com/wp-content/uploads/2016/05/industrial-valves.jpg
