@@ -237,6 +237,8 @@
           </nav>
           <button
             @click="mobileOpen = !mobileOpen"
+            aria-label="Открыть меню"
+            :aria-expanded="mobileOpen"
             class="lg:hidden p-2 rounded-lg text-[#001A33] hover:bg-gray-100 transition"
           >
             <svg
@@ -863,7 +865,7 @@
         <div
           class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500"
         >
-          <p>© 2024 ТОО «Gas Inpex». Все права защищены.</p>
+          <p>© 2026 ТОО «Gas Inpex». Все права защищены.</p>
           <div class="flex items-center gap-4">
             <a href="contacts.html" class="hover:text-white transition"
               >Политика конфиденциальности</a
