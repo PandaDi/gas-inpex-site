@@ -47,3 +47,12 @@
   https://download.schneider-electric.com/files?p_Doc_Ref=PIO00009674&p_File_Type=rendition_1500_jpg
 - `real-smart-gas-detector.jpg` — Smart Gas Leak Detector - Gas Alarm, Smart Gas Sensor, Gas Leak Sensor ... — Bing
   https://theconnectedshop.com/cdn/shop/files/smart-gas-leak-detector-290812_800x.jpg?v=1716923445
+
+## Industrial catalog completion images
+
+- `real-industrial-regulator-rbg-4200.jpg` — query: RBG 4200 gas pressure regulator product photo — source: https://5.imimg.com/data5/SELLER/Default/2021/12/AN/OP/FM/12866994/high-pressure-gas-regulator-4200-series-500x500.jpeg
+- `real-industrial-regulator-pietro-fiorentini.jpg` — query: Pietro Fiorentini gas pressure regulator product photo — source: https://www.fiorentini-usa.com/wp-content/uploads/2024/10/fe-25-50.jpg
+- `real-industrial-regulator-elster-j48.jpg` — query: Elster J48 gas pressure regulator product photo — source: https://www.mytub.co.uk/product_images/26438273829043mytub.jpg
+- `real-industrial-gasdetector-seitron-s100.jpg` — query: Seitron S100 gas detector product photo — source: https://airgas.my/wp-content/uploads/2025/04/1000024078.jpg
+- `real-industrial-gasdetector-senseco-sg200.jpg` — query: Senseco SG-200 CO detector product photo — source: https://ueeshop.ly200-cdn.com/u_file/UPBG/UPBG617/2512/05/products/SmokeandCOdetector2.jpg
+- `real-industrial-gasguard-pro.jpg` — query: GasGuard gas monitoring controller product photo — source: https://www.flamefast-gas-safety.co.uk/media/catalog/product/cache/f50a08cc25881947c274dc5f60e605ae/g/a/gasguard_rt01_2022.jpg
