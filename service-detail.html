@@ -1,565 +1,1393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Услуги Gas Inpex — Подробное описание</title>
-  <meta name="description" content="Подробное описание услуг ТОО «Gas Inpex»: проектирование АСУ ТП, системы Умный дом, СМР и ПНР, промышленные котельные, бытовые котлы, датчики утечки газа." />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Услуги Gas Inpex — Подробное описание</title>
+    <meta
+      name="description"
+      content="Подробное описание услуг ТОО «Gas Inpex»: проектирование АСУ ТП, системы Умный дом, СМР и ПНР, промышленные котельные, бытовые котлы, датчики утечки газа."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>"
+    />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Alpine.js CDN -->
-  <script src="//unpkg.com/alpinejs" defer></script>
-  <!-- FontAwesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #6B7280; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #001A33; }
-    .nav-link::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: #E60000;
-      transition: width 0.3s ease;
-      margin-top: 2px;
-    }
-    .nav-link:hover::after,
-    .nav-link.active::after { width: 100%; }
-    .dropdown-content {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    }
-    .group:hover .dropdown-content {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .mobile-menu { transition: max-height 0.35s ease, opacity 0.25s ease; }
-    .mobile-menu.open { max-height: 600px; opacity: 1; }
-    .mobile-menu.closed { max-height: 0; opacity: 0; overflow: hidden; }
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-    .sticky-cta.show { transform: translateY(0); }
-    [x-cloak] { display: none !important; }
-    .service-card {
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-    }
-  </style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #6b7280;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #001a33;
+      }
+      .nav-link::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #e60000;
+        transition: width 0.3s ease;
+        margin-top: 2px;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      .dropdown-content {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition:
+          opacity 0.2s ease,
+          visibility 0.2s ease,
+          transform 0.2s ease;
+      }
+      .group:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .mobile-menu {
+        transition:
+          max-height 0.35s ease,
+          opacity 0.25s ease;
+      }
+      .mobile-menu.open {
+        max-height: 600px;
+        opacity: 1;
+      }
+      .mobile-menu.closed {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      .sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      .sticky-cta.show {
+        transform: translateY(0);
+      }
+      [x-cloak] {
+        display: none !important;
+      }
+      .service-card {
+        transition: all 0.3s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-4px);
+      }
+    </style>
 
-  <link rel="canonical" href="https://pandadi.github.io/gas-inpex-site/service-detail.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Услуги Gas Inpex — Подробное описание" />
-  <meta property="og:description" content="Подробное описание услуг ТОО «Gas Inpex»: проектирование АСУ ТП, системы Умный дом, СМР и ПНР, промышленные котельные, бытовые котлы, датчики утечки газа." />
-  <meta property="og:url" content="https://pandadi.github.io/gas-inpex-site/service-detail.html" />
-  <meta property="og:image" content="https://pandadi.github.io/gas-inpex-site/images/hero-supply.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="canonical"
+      href="https://pandadi.github.io/gas-inpex-site/service-detail.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Услуги Gas Inpex — Подробное описание" />
+    <meta
+      property="og:description"
+      content="Подробное описание услуг ТОО «Gas Inpex»: проектирование АСУ ТП, системы Умный дом, СМР и ПНР, промышленные котельные, бытовые котлы, датчики утечки газа."
+    />
+    <meta
+      property="og:url"
+      content="https://pandadi.github.io/gas-inpex-site/service-detail.html"
+    />
+    <meta
+      property="og:image"
+      content="https://pandadi.github.io/gas-inpex-site/images/hero-supply.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Gas Inpex", "legalName": "ТОО «Gas Inpex»", "url": "https://pandadi.github.io/gas-inpex-site/", "image": "https://pandadi.github.io/gas-inpex-site/images/hero-supply.jpg", "telephone": "+77213567890", "email": "info@gasinpex.kz", "address": {"@type": "PostalAddress", "addressLocality": "Темиртау", "streetAddress": "ул. Амангельды, 112", "addressCountry": "KZ"}, "areaServed": "Казахстан", "description": "Инжиниринг, автоматизация АСУ ТП, поставка и сервис газового оборудования."}</script>
-</head>
-<body class="font-sans antialiased text-gray-800 bg-white">
-
-  <!-- ============================================================ -->
-  <!-- TOP BAR                                                       -->
-  <!-- ============================================================ -->
-  <div class="bg-[#001A33] text-white text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2">
-      <div class="hidden sm:flex items-center gap-2 text-xs text-gray-300"><i class="fas fa-shield-alt text-[#E60000]"></i><span>Газовое оборудование, АСУ ТП и сервис по Казахстану</span></div>
-      <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
-        <a href="tel:+77213567890" class="hover:text-[#E60000] transition flex items-center gap-1.5">
-          <i class="fas fa-phone-alt text-[#E60000] text-xs"></i> +7 (7213) 56-78-90
-        </a>
-        <a href="mailto:info@gasinpex.kz" class="hover:text-[#E60000] transition flex items-center gap-1.5">
-          <i class="fas fa-envelope text-[#E60000] text-xs"></i> info@gasinpex.kz
-        </a>
-        <a href="https://wa.me/77213567890" class="hover:text-[#E60000] transition flex items-center gap-1.5"><i class="fab fa-whatsapp text-[#E60000] text-xs"></i> WhatsApp</a>
-        <span class="hidden md:flex items-center gap-1.5 text-gray-300">
-          <i class="fas fa-map-marker-alt text-[#E60000] text-xs"></i> г. Темиртау, ул. Амангельды, 112
-        </span>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Gas Inpex",
+        "legalName": "ТОО «Gas Inpex»",
+        "url": "https://pandadi.github.io/gas-inpex-site/",
+        "image": "https://pandadi.github.io/gas-inpex-site/images/hero-supply.jpg",
+        "telephone": "+77213567890",
+        "email": "info@gasinpex.kz",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Темиртау",
+          "streetAddress": "ул. Амангельды, 112",
+          "addressCountry": "KZ"
+        },
+        "areaServed": "Казахстан",
+        "description": "Инжиниринг, автоматизация АСУ ТП, поставка и сервис газового оборудования."
+      }
+    </script>
+  </head>
+  <body class="font-sans antialiased text-gray-800 bg-white">
+    <!-- ============================================================ -->
+    <!-- TOP BAR                                                       -->
+    <!-- ============================================================ -->
+    <div class="bg-[#001A33] text-white text-sm">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2"
+      >
+        <div class="hidden sm:flex items-center gap-2 text-xs text-gray-300">
+          <i class="fas fa-shield-alt text-[#E60000]"></i
+          ><span>Газовое оборудование, АСУ ТП и сервис по Казахстану</span>
+        </div>
+        <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
+          <a
+            href="tel:+77213567890"
+            class="hover:text-[#E60000] transition flex items-center gap-1.5"
+          >
+            <i class="fas fa-phone-alt text-[#E60000] text-xs"></i> +7 (7213)
+            56-78-90
+          </a>
+          <a
+            href="mailto:info@gasinpex.kz"
+            class="hover:text-[#E60000] transition flex items-center gap-1.5"
+          >
+            <i class="fas fa-envelope text-[#E60000] text-xs"></i>
+            info@gasinpex.kz
+          </a>
+          <a
+            href="https://wa.me/77213567890"
+            class="hover:text-[#E60000] transition flex items-center gap-1.5"
+            ><i class="fab fa-whatsapp text-[#E60000] text-xs"></i> WhatsApp</a
+          >
+          <span class="hidden md:flex items-center gap-1.5 text-gray-300">
+            <i class="fas fa-map-marker-alt text-[#E60000] text-xs"></i> г.
+            Темиртау, ул. Амангельды, 112
+          </span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ============================================================ -->
-  <!-- HEADER + NAVIGATION                                           -->
-  <!-- ============================================================ -->
-  <header class="sticky top-0 z-50 bg-white transition-all duration-300" x-data="{ mobileOpen: false, scrolled: false }" @scroll.window="scrolled = window.scrollY > 50" :class="scrolled ? 'shadow-xl' : 'shadow-md'">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between" :class="scrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'">
+    <!-- ============================================================ -->
+    <!-- HEADER + NAVIGATION                                           -->
+    <!-- ============================================================ -->
+    <header
+      class="sticky top-0 z-50 bg-white transition-all duration-300"
+      x-data="{ mobileOpen: false, scrolled: false }"
+      @scroll.window="scrolled = window.scrollY > 50"
+      :class="scrolled ? 'shadow-xl' : 'shadow-md'"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex items-center justify-between"
+          :class="scrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'"
+        >
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center gap-1 group">
+            <span
+              class="font-black tracking-tight transition-all"
+              :class="scrolled ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'"
+            >
+              <span class="text-[#E60000]">GAS</span>
+              <span class="text-[#001A33]">INPEX</span>
+            </span>
+          </a>
 
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-1 group">
-          <span class="font-black tracking-tight transition-all" :class="scrolled ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'">
-            <span class="text-[#E60000]">GAS</span> <span class="text-[#001A33]">INPEX</span>
-          </span>
-        </a>
-
-        <!-- Desktop Nav (lg+) -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-          <a href="index.html" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]">Главная</a>
-          <a href="services.html" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-[#001A33] active">Услуги</a>
-          <a href="objects.html" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]">Объекты</a>
-          <a href="certificates.html" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]">Сертификаты</a>
-          <a href="partners.html" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]">Партнеры</a>
-          <!-- Каталог с dropdown -->
-          <div class="group relative inline-flex items-center">
-            <a href="catalog-industrial.html" class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33] flex items-center gap-1 whitespace-nowrap">
-              Каталог <i class="fas fa-chevron-down text-[10px] transition group-hover:rotate-180"></i>
+          <!-- Desktop Nav (lg+) -->
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+            <a
+              href="index.html"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              >Главная</a
+            >
+            <a
+              href="services.html"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-[#001A33] active"
+              >Услуги</a
+            >
+            <a
+              href="objects.html"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              >Объекты</a
+            >
+            <a
+              href="certificates.html"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              >Сертификаты</a
+            >
+            <a
+              href="partners.html"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              >Партнеры</a
+            >
+            <!-- Каталог с dropdown -->
+            <div class="group relative inline-flex items-center">
+              <a
+                href="catalog-industrial.html"
+                class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33] flex items-center gap-1 whitespace-nowrap"
+              >
+                Каталог
+                <i
+                  class="fas fa-chevron-down text-[10px] transition group-hover:rotate-180"
+                ></i>
+              </a>
+              <div
+                class="dropdown-content absolute top-full left-2 mt-0 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
+              >
+                <a
+                  href="catalog-industrial.html"
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
+                  ><i class="fas fa-industry w-5 text-[#001A33]"></i>
+                  Промышленное газовое оборудование</a
+                >
+                <a
+                  href="catalog-boilers.html"
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
+                  ><i class="fas fa-fire-burner w-5 text-[#001A33]"></i> Бытовые
+                  котлы</a
+                >
+                <a
+                  href="catalog-smarthome.html"
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
+                  ><i class="fas fa-home w-5 text-[#001A33]"></i> Системы «Умный
+                  дом»</a
+                >
+                <a
+                  href="catalog-kipia.html"
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
+                  ><i class="fas fa-microchip w-5 text-[#001A33]"></i>
+                  Оборудование КИПиА</a
+                >
+              </div>
+            </div>
+            <a
+              href="contacts.html"
+              class="px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              >Контакты</a
+            >
+            <!-- CTA Button -->
+            <a
+              href="contacts.html"
+              class="ml-3 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 flex items-center gap-2"
+            >
+              <i class="fas fa-phone-alt"></i> Связаться
             </a>
-            <div class="dropdown-content absolute top-full left-2 mt-0 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
-              <a href="catalog-industrial.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-industry w-5 text-[#001A33]"></i> Промышленное газовое оборудование</a>
-              <a href="catalog-boilers.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-fire-burner w-5 text-[#001A33]"></i> Бытовые котлы</a>
-              <a href="catalog-smarthome.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-home w-5 text-[#001A33]"></i> Системы «Умный дом»</a>
-              <a href="catalog-kipia.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"><i class="fas fa-microchip w-5 text-[#001A33]"></i> Оборудование КИПиА</a>
+          </nav>
+
+          <!-- Hamburger (mobile < lg) -->
+          <button
+            @click="mobileOpen = !mobileOpen"
+            class="lg:hidden p-2 rounded-lg text-[#001A33] hover:bg-gray-100 transition"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                x-show="!mobileOpen"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+              <path
+                x-show="mobileOpen"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        class="lg:hidden border-t border-gray-100"
+        x-show="mobileOpen"
+        x-transition
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
+          <a
+            href="index.html"
+            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            >Главная</a
+          >
+          <a
+            href="services.html"
+            class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#001A33] bg-gray-50"
+            >Услуги</a
+          >
+          <a
+            href="objects.html"
+            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            >Объекты</a
+          >
+          <a
+            href="certificates.html"
+            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            >Сертификаты</a
+          >
+          <a
+            href="partners.html"
+            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            >Партнеры</a
+          >
+          <!-- Каталог mobile accordion -->
+          <div x-data="{ catOpen: false }">
+            <button
+              @click="catOpen = !catOpen"
+              class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            >
+              Каталог
+              <i
+                class="fas fa-chevron-down text-xs transition"
+                :class="catOpen ? 'rotate-180' : ''"
+              ></i>
+            </button>
+            <div x-show="catOpen" class="ml-4 mt-1 space-y-1" x-transition>
+              <a
+                href="catalog-industrial.html"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                ><i class="fas fa-industry w-5"></i> Промышленное газовое
+                оборудование</a
+              >
+              <a
+                href="catalog-boilers.html"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                ><i class="fas fa-fire-burner w-5"></i> Бытовые котлы</a
+              >
+              <a
+                href="catalog-smarthome.html"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                ><i class="fas fa-home w-5"></i> Системы «Умный дом»</a
+              >
+              <a
+                href="catalog-kipia.html"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                ><i class="fas fa-microchip w-5"></i> Оборудование КИПиА</a
+              >
             </div>
           </div>
-          <a href="contacts.html" class="px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]">Контакты</a>
-          <!-- CTA Button -->
-          <a href="contacts.html" class="ml-3 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 flex items-center gap-2">
+          <a
+            href="contacts.html"
+            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            >Контакты</a
+          >
+          <a
+            href="contacts.html"
+            class="block mt-3 px-5 py-3 bg-[#E60000] text-white text-sm font-semibold rounded-lg text-center"
+            >Связаться</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- PAGE HERO                                                     -->
+    <!-- ============================================================ -->
+    <section class="bg-[#001A33] py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span
+          class="text-[#E60000] text-sm font-semibold uppercase tracking-widest"
+          >Услуги</span
+        >
+        <h1
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4"
+        >
+          Услуги Gas Inpex
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          Комплексные решения от проектирования до ввода в эксплуатацию — полный
+          цикл работ для промышленных и частных объектов
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICE 1: ПРОЕКТИРОВАНИЕ СИСТЕМ (АСУ ТП)                     -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-10" id="service-1">
+          <div
+            class="w-12 h-12 bg-[#E60000] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0"
+          >
+            <i class="fas fa-cubes"></i>
+          </div>
+          <div>
+            <span
+              class="text-[#E60000] text-xs font-semibold uppercase tracking-widest"
+              >Услуга 01</span
+            >
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">
+              Проектирование систем (АСУ ТП)
+            </h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#001A33]"
+                >Разработка проектной документации</strong
+              >
+              — наши инженеры разрабатывают полный комплект проектной и рабочей
+              документации для систем автоматизации технологических процессов
+              (АСУ ТП). Включает технические задания, структурные и
+              функциональные схемы, схемы внешних проводок и подключений,
+              спецификации оборудования.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">3D-моделирование и расчёты</strong>
+              — используем современные CAD-системы для трёхмерного моделирования
+              технологических узлов, трассировки кабельных трасс, компоновки
+              щитов управления. Выполняем гидравлические, тепловые и прочностные
+              расчёты для оптимизации проектных решений.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Согласование и экспертиза</strong>
+              — осуществляем полное сопровождение документации при прохождении
+              государственной экспертизы, согласование с надзорными органами и
+              заинтересованными сторонами. Гарантируем соответствие всем
+              нормативным требованиям РК и РФ.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Авторский надзор</strong> —
+              контроль соответствия монтажных работ разработанной проектной
+              документации, внесение необходимых корректировок, участие в
+              комиссиях по приёмке объектов.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100"
+          >
+            <h3
+              class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2"
+            >
+              <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Полный комплект документации под ключ</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >3D-моделирование всех узлов и систем</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Сопровождение госэкспертизы</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Соблюдение ГОСТ, СНиП и ПУЭ</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Опыт проектирования объектов любой сложности</span
+                >
+              </li>
+            </ul>
+            <a
+              href="contacts.html"
+              class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm"
+            >
+              <i class="fas fa-shopping-cart"></i> Заказать услугу
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICE 2: СИСТЕМЫ «УМНЫЙ ДОМ»                                -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-10" id="service-2">
+          <div
+            class="w-12 h-12 bg-[#001A33] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0"
+          >
+            <i class="fas fa-home"></i>
+          </div>
+          <div>
+            <span
+              class="text-[#E60000] text-xs font-semibold uppercase tracking-widest"
+              >Услуга 02</span
+            >
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">
+              Системы «Умный дом»
+            </h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#001A33]">Автоматизация освещения</strong> —
+              интеллектуальное управление освещением с датчиками движения,
+              освещённости и присутствия. Сценарии включения/выключения,
+              диммирование, цветовая температура. Управление как локально, так и
+              удалённо через мобильное приложение.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Автоматизация отопления</strong> —
+              погодозависимое регулирование температуры в каждом помещении,
+              управление тёплыми полами, радиаторами, конвекторами. Интеграция с
+              котлами и тепловыми насосами. Экономия до 30% на отоплении.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Системы безопасности</strong> —
+              охранная и пожарная сигнализация, видеонаблюдение с удалённым
+              доступом, датчики утечки газа, протечки воды, открытия дверей и
+              окон. Мгновенные push-уведомления на смартфон.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Управление со смартфона</strong> —
+              единое приложение для управления всеми системами дома. Голосовое
+              управление через Алису, Siri или Google Assistant. Сценарии:
+              «Утро», «Уход из дома», «Ночь», «Приём гостей» и любые
+              пользовательские.
+            </p>
+          </div>
+          <div
+            class="bg-gray-50 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100"
+          >
+            <h3
+              class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2"
+            >
+              <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Экономия до 30% на коммунальных платежах</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Управление из любой точки мира</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Масштабируемость без замены контроллера</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Голосовое управление (Алиса, Siri, Google)</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Оборудование Ajax, Fibaro, Schneider Electric</span
+                >
+              </li>
+            </ul>
+            <a
+              href="contacts.html"
+              class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm"
+            >
+              <i class="fas fa-shopping-cart"></i> Заказать услугу
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICE 3: СТРОИТЕЛЬНО-МОНТАЖНЫЕ И ПУСКОНАЛАДОЧНЫЕ РАБОТЫ     -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-10" id="service-3">
+          <div
+            class="w-12 h-12 bg-[#E60000] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0"
+          >
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <div>
+            <span
+              class="text-[#E60000] text-xs font-semibold uppercase tracking-widest"
+              >Услуга 03</span
+            >
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">
+              Строительно-монтажные и пусконаладочные работы
+            </h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#001A33]"
+                >Монтаж котельных и газопроводов</strong
+              >
+              — установка промышленных и бытовых котельных агрегатов, прокладка
+              наружных и внутренних газопроводов, монтаж газового оборудования и
+              арматуры. Все работы выполняются лицензированными специалистами в
+              соответствии с проектной документацией.
+            </p>
+            <p>
+              <strong class="text-[#001A33]"
+                >Монтаж систем автоматизации</strong
+              >
+              — установка щитов управления, прокладка контрольных кабелей,
+              монтаж датчиков и исполнительных механизмов, пусконаладка ПЛК и
+              SCADA-систем. Обеспечиваем полную интеграцию с существующими
+              системами заказчика.
+            </p>
+            <p>
+              <strong class="text-[#001A33]"
+                >Пусконаладочные работы (ПНР)</strong
+              >
+              — настройка и регулировка оборудования, программирование
+              контроллеров, тестирование алгоритмов управления, калибровка
+              датчиков, пробный пуск, вывод на рабочий режим, снятие
+              характеристик.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Ввод в эксплуатацию</strong> —
+              комплексное тестирование всех систем под нагрузкой, обучение
+              персонала заказчика, передача исполнительной документации,
+              подписание актов приёма-передачи. Гарантийное обслуживание после
+              ввода.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100"
+          >
+            <h3
+              class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2"
+            >
+              <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Работы «под ключ» — от проекта до ввода</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Лицензированные специалисты и допуски СРО</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Соблюдение сроков и бюджета</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Гарантия на выполненные работы 2 года</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Обучение персонала заказчика</span
+                >
+              </li>
+            </ul>
+            <a
+              href="contacts.html"
+              class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm"
+            >
+              <i class="fas fa-shopping-cart"></i> Заказать услугу
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICE 4: ПРОМЫШЛЕННЫЕ КОТЕЛЬНЫЕ                             -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-10" id="service-4">
+          <div
+            class="w-12 h-12 bg-[#001A33] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0"
+          >
+            <i class="fas fa-industry"></i>
+          </div>
+          <div>
+            <span
+              class="text-[#E60000] text-xs font-semibold uppercase tracking-widest"
+              >Услуга 04</span
+            >
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">
+              Промышленные котельные
+            </h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#001A33]"
+                >Поставка котельного оборудования</strong
+              >
+              — промышленные водогрейные и паровые котлы, газогорелочные
+              устройства, теплообменники, насосное оборудование, расширительные
+              баки, дымососы, экономайзеры. Сотрудничаем с ведущими мировыми
+              производителями.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Монтаж и настройка горелок</strong>
+              — установка и пусконаладка газовых, комбинированных и дизельных
+              горелок. Настройка соотношения газ-воздух, регулировка мощности,
+              калибровка газовых клапанов. Гарантируем КПД не ниже заявленного
+              производителем.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Теплообменное оборудование</strong>
+              — поставка и монтаж пластинчатых, кожухотрубных и паяных
+              теплообменников. Расчёт и подбор теплообменников под конкретные
+              параметры тепловых сетей заказчика.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Автоматизация котельных</strong> —
+              разработка и внедрение систем автоматического управления
+              котельной, диспетчеризация, удалённый мониторинг параметров, учёт
+              тепловой энергии и газа.
+            </p>
+          </div>
+          <div
+            class="bg-gray-50 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100"
+          >
+            <h3
+              class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2"
+            >
+              <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Официальные поставки от производителей</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >КПД оборудования до 98%</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Монтаж и настройка «под ключ»</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Автоматизация и диспетчеризация</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Гарантийное и сервисное обслуживание</span
+                >
+              </li>
+            </ul>
+            <a
+              href="contacts.html"
+              class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm"
+            >
+              <i class="fas fa-shopping-cart"></i> Заказать услугу
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICE 5: БЫТОВЫЕ КОТЛЫ                                      -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-10" id="service-5">
+          <div
+            class="w-12 h-12 bg-[#E60000] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0"
+          >
+            <i class="fas fa-fire-burner"></i>
+          </div>
+          <div>
+            <span
+              class="text-[#E60000] text-xs font-semibold uppercase tracking-widest"
+              >Услуга 05</span
+            >
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">
+              Бытовые котлы
+            </h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#001A33]">Настенные газовые котлы</strong> —
+              компактные и экономичные модели мощностью от 12 до 42 кВт.
+              Одноконтурные (только отопление) и двухконтурные (отопление +
+              горячее водоснабжение). Закрытая и открытая камера сгорания,
+              модулируемые горелки, погодозависимое регулирование.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Напольные газовые котлы</strong> —
+              мощные агрегаты от 24 до 120 кВт для отопления частных домов
+              большой площади и коммерческих помещений. Чугунные и стальные
+              теплообменники, атмосферные и наддувные горелки, высокая
+              надёжность и долговечность.
+            </p>
+            <p>
+              <strong class="text-[#001A33]"
+                >Бренды Ariston, Baxi, Vaillant</strong
+              >
+              — официальный дилер и сертифицированный сервисный центр.
+              Предлагаем котлы итальянского (Ariston, Baxi) и немецкого
+              (Vaillant) производства. Полная гарантийная и послегарантийная
+              поддержка.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Установка и настройка</strong> —
+              профессиональный монтаж котла с подключением к системе отопления,
+              газоснабжению, водоснабжению и дымоудалению. Настройка режимов
+              работы, программирование погодозависимого регулирования,
+              инструктаж владельца.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100"
+          >
+            <h3
+              class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2"
+            >
+              <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Оригинальная продукция с гарантией</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Модельный ряд от 12 до 120 кВт</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Профессиональный монтаж и настройка</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Сервисный центр и запчасти в наличии</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Кредит и рассрочка на оборудование</span
+                >
+              </li>
+            </ul>
+            <a
+              href="contacts.html"
+              class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm"
+            >
+              <i class="fas fa-shopping-cart"></i> Заказать услугу
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICE 6: ДАТЧИКИ УТЕЧКИ ГАЗА И КЛИМАТ-КОНТРОЛЬ             -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-10" id="service-6">
+          <div
+            class="w-12 h-12 bg-[#001A33] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0"
+          >
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+          <div>
+            <span
+              class="text-[#E60000] text-xs font-semibold uppercase tracking-widest"
+              >Услуга 06</span
+            >
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">
+              Датчики утечки газа и климат-контроль
+            </h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-10">
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#001A33]"
+                >Газоанализаторы и сигнализаторы утечки</strong
+              >
+              — стационарные и переносные приборы для обнаружения природного
+              газа (метан), сжиженного газа (пропан-бутан), угарного газа (CO).
+              Звуковая и световая сигнализация, автоматическое перекрытие
+              газового клапана, отправка уведомлений на смартфон.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Термостаты и программаторы</strong>
+              — комнатные термостаты, погодозависимые контроллеры, программаторы
+              отопления с недельным расписанием. Поддержание комфортной
+              температуры с точностью до 0,1°C. Беспроводные (Wi-Fi/ZigBee) и
+              проводные модели.
+            </p>
+            <p>
+              <strong class="text-[#001A33]">Контроллеры микроклимата</strong> —
+              интеграция датчиков температуры, влажности, CO2 в единую систему
+              управления. Автоматическое управление вентиляцией, увлажнителями,
+              осушителями, кондиционерами. Создание комфортного микроклимата с
+              минимальным энергопотреблением.
+            </p>
+            <p>
+              <strong class="text-[#001A33]"
+                >Системы газового мониторинга</strong
+              >
+              — комплексные решения для промышленных объектов: многоточечный
+              контроль, вывод на диспетчерский пульт, интеграция с системами
+              пожаротушения и вентиляции. Соответствие требованиям промышленной
+              безопасности.
+            </p>
+          </div>
+          <div
+            class="bg-gray-50 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100"
+          >
+            <h3
+              class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2"
+            >
+              <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Сертифицированное газоаналитическое оборудование</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Автоматическое перекрытие газа при утечке</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Уведомления на смартфон 24/7</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Интеграция с системами Умный дом</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"
+                ></i
+                ><span class="text-sm text-gray-600"
+                  >Экономия энергии до 25%</span
+                >
+              </li>
+            </ul>
+            <a
+              href="contacts.html"
+              class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm"
+            >
+              <i class="fas fa-shopping-cart"></i> Заказать услугу
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CTA SECTION — НУЖНА КОНСУЛЬТАЦИЯ?                             -->
+    <!-- ============================================================ -->
+    <section class="py-16 bg-[#001A33]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+          Нужна консультация?
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
+          Свяжитесь с нами — наши инженеры помогут подобрать оптимальное решение
+          для вашего объекта и ответят на все вопросы
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="contacts.html"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-base"
+          >
             <i class="fas fa-phone-alt"></i> Связаться
           </a>
-        </nav>
-
-        <!-- Hamburger (mobile < lg) -->
-        <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg text-[#001A33] hover:bg-gray-100 transition">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            <path x-show="mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+          <a
+            href="tel:+77213567890"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/20 text-base"
+          >
+            <i class="fas fa-phone-alt"></i> +7 (7213) 56-78-90
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Mobile Menu -->
-    <div class="lg:hidden border-t border-gray-100" x-show="mobileOpen" x-transition>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
-        <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">Главная</a>
-        <a href="services.html" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#001A33] bg-gray-50">Услуги</a>
-        <a href="objects.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">Объекты</a>
-        <a href="certificates.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">Сертификаты</a>
-        <a href="partners.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">Партнеры</a>
-        <!-- Каталог mobile accordion -->
-        <div x-data="{ catOpen: false }">
-          <button @click="catOpen = !catOpen" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">
-            Каталог <i class="fas fa-chevron-down text-xs transition" :class="catOpen ? 'rotate-180' : ''"></i>
-          </button>
-          <div x-show="catOpen" class="ml-4 mt-1 space-y-1" x-transition>
-            <a href="catalog-industrial.html" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-industry w-5"></i> Промышленное газовое оборудование</a>
-            <a href="catalog-boilers.html" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-fire-burner w-5"></i> Бытовые котлы</a>
-            <a href="catalog-smarthome.html" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-home w-5"></i> Системы «Умный дом»</a>
-            <a href="catalog-kipia.html" class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"><i class="fas fa-microchip w-5"></i> Оборудование КИПиА</a>
+    <!-- ============================================================ -->
+    <!-- FOOTER                                                        -->
+    <!-- ============================================================ -->
+    <footer
+      class="bg-[#001A33] border-t border-white/10 pt-12 sm:pt-16 pb-24 sm:pb-10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10"
+        >
+          <!-- Column 1: Logo + description -->
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xl font-black tracking-tight"
+                ><span class="text-[#E60000]">GAS</span>
+                <span class="text-white">INPEX</span></span
+              >
+            </div>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">
+              Инжиниринг, автоматизация и поставка газового оборудования в
+              Казахстане с 2010 года.
+            </p>
           </div>
-        </div>
-        <a href="contacts.html" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">Контакты</a>
-        <a href="contacts.html" class="block mt-3 px-5 py-3 bg-[#E60000] text-white text-sm font-semibold rounded-lg text-center">Связаться</a>
-      </div>
-    </div>
-  </header>
 
-  <!-- ============================================================ -->
-  <!-- PAGE HERO                                                     -->
-  <!-- ============================================================ -->
-  <section class="bg-[#001A33] py-16 sm:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="text-[#E60000] text-sm font-semibold uppercase tracking-widest">Услуги</span>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">Услуги Gas Inpex</h1>
-      <p class="text-gray-400 max-w-2xl mx-auto text-lg">Комплексные решения от проектирования до ввода в эксплуатацию — полный цикл работ для промышленных и частных объектов</p>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICE 1: ПРОЕКТИРОВАНИЕ СИСТЕМ (АСУ ТП)                     -->
-  <!-- ============================================================ -->
-  <section class="py-16 sm:py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-10" id="service-1">
-        <div class="w-12 h-12 bg-[#E60000] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
-          <i class="fas fa-cubes"></i>
-        </div>
-        <div>
-          <span class="text-[#E60000] text-xs font-semibold uppercase tracking-widest">Услуга 01</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">Проектирование систем (АСУ ТП)</h2>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="space-y-6 text-gray-600 leading-relaxed">
-          <p><strong class="text-[#001A33]">Разработка проектной документации</strong> — наши инженеры разрабатывают полный комплект проектной и рабочей документации для систем автоматизации технологических процессов (АСУ ТП). Включает технические задания, структурные и функциональные схемы, схемы внешних проводок и подключений, спецификации оборудования.</p>
-          <p><strong class="text-[#001A33]">3D-моделирование и расчёты</strong> — используем современные CAD-системы для трёхмерного моделирования технологических узлов, трассировки кабельных трасс, компоновки щитов управления. Выполняем гидравлические, тепловые и прочностные расчёты для оптимизации проектных решений.</p>
-          <p><strong class="text-[#001A33]">Согласование и экспертиза</strong> — осуществляем полное сопровождение документации при прохождении государственной экспертизы, согласование с надзорными органами и заинтересованными сторонами. Гарантируем соответствие всем нормативным требованиям РК и РФ.</p>
-          <p><strong class="text-[#001A33]">Авторский надзор</strong> — контроль соответствия монтажных работ разработанной проектной документации, внесение необходимых корректировок, участие в комиссиях по приёмке объектов.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-          <h3 class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2">
-            <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Полный комплект документации под ключ</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">3D-моделирование всех узлов и систем</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Сопровождение госэкспертизы</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Соблюдение ГОСТ, СНиП и ПУЭ</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Опыт проектирования объектов любой сложности</span></li>
-          </ul>
-          <a href="contacts.html" class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm">
-            <i class="fas fa-shopping-cart"></i> Заказать услугу
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICE 2: СИСТЕМЫ «УМНЫЙ ДОМ»                                -->
-  <!-- ============================================================ -->
-  <section class="py-16 sm:py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-10" id="service-2">
-        <div class="w-12 h-12 bg-[#001A33] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
-          <i class="fas fa-home"></i>
-        </div>
-        <div>
-          <span class="text-[#E60000] text-xs font-semibold uppercase tracking-widest">Услуга 02</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">Системы «Умный дом»</h2>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="space-y-6 text-gray-600 leading-relaxed">
-          <p><strong class="text-[#001A33]">Автоматизация освещения</strong> — интеллектуальное управление освещением с датчиками движения, освещённости и присутствия. Сценарии включения/выключения, диммирование, цветовая температура. Управление как локально, так и удалённо через мобильное приложение.</p>
-          <p><strong class="text-[#001A33]">Автоматизация отопления</strong> — погодозависимое регулирование температуры в каждом помещении, управление тёплыми полами, радиаторами, конвекторами. Интеграция с котлами и тепловыми насосами. Экономия до 30% на отоплении.</p>
-          <p><strong class="text-[#001A33]">Системы безопасности</strong> — охранная и пожарная сигнализация, видеонаблюдение с удалённым доступом, датчики утечки газа, протечки воды, открытия дверей и окон. Мгновенные push-уведомления на смартфон.</p>
-          <p><strong class="text-[#001A33]">Управление со смартфона</strong> — единое приложение для управления всеми системами дома. Голосовое управление через Алису, Siri или Google Assistant. Сценарии: «Утро», «Уход из дома», «Ночь», «Приём гостей» и любые пользовательские.</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-          <h3 class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2">
-            <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Экономия до 30% на коммунальных платежах</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Управление из любой точки мира</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Масштабируемость без замены контроллера</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Голосовое управление (Алиса, Siri, Google)</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Оборудование Ajax, Fibaro, Schneider Electric</span></li>
-          </ul>
-          <a href="contacts.html" class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm">
-            <i class="fas fa-shopping-cart"></i> Заказать услугу
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICE 3: СТРОИТЕЛЬНО-МОНТАЖНЫЕ И ПУСКОНАЛАДОЧНЫЕ РАБОТЫ     -->
-  <!-- ============================================================ -->
-  <section class="py-16 sm:py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-10" id="service-3">
-        <div class="w-12 h-12 bg-[#E60000] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
-          <i class="fas fa-hard-hat"></i>
-        </div>
-        <div>
-          <span class="text-[#E60000] text-xs font-semibold uppercase tracking-widest">Услуга 03</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">Строительно-монтажные и пусконаладочные работы</h2>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="space-y-6 text-gray-600 leading-relaxed">
-          <p><strong class="text-[#001A33]">Монтаж котельных и газопроводов</strong> — установка промышленных и бытовых котельных агрегатов, прокладка наружных и внутренних газопроводов, монтаж газового оборудования и арматуры. Все работы выполняются лицензированными специалистами в соответствии с проектной документацией.</p>
-          <p><strong class="text-[#001A33]">Монтаж систем автоматизации</strong> — установка щитов управления, прокладка контрольных кабелей, монтаж датчиков и исполнительных механизмов, пусконаладка ПЛК и SCADA-систем. Обеспечиваем полную интеграцию с существующими системами заказчика.</p>
-          <p><strong class="text-[#001A33]">Пусконаладочные работы (ПНР)</strong> — настройка и регулировка оборудования, программирование контроллеров, тестирование алгоритмов управления, калибровка датчиков, пробный пуск, вывод на рабочий режим, снятие характеристик.</p>
-          <p><strong class="text-[#001A33]">Ввод в эксплуатацию</strong> — комплексное тестирование всех систем под нагрузкой, обучение персонала заказчика, передача исполнительной документации, подписание актов приёма-передачи. Гарантийное обслуживание после ввода.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-          <h3 class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2">
-            <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Работы «под ключ» — от проекта до ввода</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Лицензированные специалисты и допуски СРО</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Соблюдение сроков и бюджета</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Гарантия на выполненные работы 2 года</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Обучение персонала заказчика</span></li>
-          </ul>
-          <a href="contacts.html" class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm">
-            <i class="fas fa-shopping-cart"></i> Заказать услугу
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICE 4: ПРОМЫШЛЕННЫЕ КОТЕЛЬНЫЕ                             -->
-  <!-- ============================================================ -->
-  <section class="py-16 sm:py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-10" id="service-4">
-        <div class="w-12 h-12 bg-[#001A33] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
-          <i class="fas fa-industry"></i>
-        </div>
-        <div>
-          <span class="text-[#E60000] text-xs font-semibold uppercase tracking-widest">Услуга 04</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">Промышленные котельные</h2>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="space-y-6 text-gray-600 leading-relaxed">
-          <p><strong class="text-[#001A33]">Поставка котельного оборудования</strong> — промышленные водогрейные и паровые котлы, газогорелочные устройства, теплообменники, насосное оборудование, расширительные баки, дымососы, экономайзеры. Сотрудничаем с ведущими мировыми производителями.</p>
-          <p><strong class="text-[#001A33]">Монтаж и настройка горелок</strong> — установка и пусконаладка газовых, комбинированных и дизельных горелок. Настройка соотношения газ-воздух, регулировка мощности, калибровка газовых клапанов. Гарантируем КПД не ниже заявленного производителем.</p>
-          <p><strong class="text-[#001A33]">Теплообменное оборудование</strong> — поставка и монтаж пластинчатых, кожухотрубных и паяных теплообменников. Расчёт и подбор теплообменников под конкретные параметры тепловых сетей заказчика.</p>
-          <p><strong class="text-[#001A33]">Автоматизация котельных</strong> — разработка и внедрение систем автоматического управления котельной, диспетчеризация, удалённый мониторинг параметров, учёт тепловой энергии и газа.</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-          <h3 class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2">
-            <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Официальные поставки от производителей</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">КПД оборудования до 98%</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Монтаж и настройка «под ключ»</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Автоматизация и диспетчеризация</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Гарантийное и сервисное обслуживание</span></li>
-          </ul>
-          <a href="contacts.html" class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm">
-            <i class="fas fa-shopping-cart"></i> Заказать услугу
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICE 5: БЫТОВЫЕ КОТЛЫ                                      -->
-  <!-- ============================================================ -->
-  <section class="py-16 sm:py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-10" id="service-5">
-        <div class="w-12 h-12 bg-[#E60000] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
-          <i class="fas fa-fire-burner"></i>
-        </div>
-        <div>
-          <span class="text-[#E60000] text-xs font-semibold uppercase tracking-widest">Услуга 05</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">Бытовые котлы</h2>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="space-y-6 text-gray-600 leading-relaxed">
-          <p><strong class="text-[#001A33]">Настенные газовые котлы</strong> — компактные и экономичные модели мощностью от 12 до 42 кВт. Одноконтурные (только отопление) и двухконтурные (отопление + горячее водоснабжение). Закрытая и открытая камера сгорания, модулируемые горелки, погодозависимое регулирование.</p>
-          <p><strong class="text-[#001A33]">Напольные газовые котлы</strong> — мощные агрегаты от 24 до 120 кВт для отопления частных домов большой площади и коммерческих помещений. Чугунные и стальные теплообменники, атмосферные и наддувные горелки, высокая надёжность и долговечность.</p>
-          <p><strong class="text-[#001A33]">Бренды Ariston, Baxi, Vaillant</strong> — официальный дилер и сертифицированный сервисный центр. Предлагаем котлы итальянского (Ariston, Baxi) и немецкого (Vaillant) производства. Полная гарантийная и послегарантийная поддержка.</p>
-          <p><strong class="text-[#001A33]">Установка и настройка</strong> — профессиональный монтаж котла с подключением к системе отопления, газоснабжению, водоснабжению и дымоудалению. Настройка режимов работы, программирование погодозависимого регулирования, инструктаж владельца.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-          <h3 class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2">
-            <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Оригинальная продукция с гарантией</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Модельный ряд от 12 до 120 кВт</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Профессиональный монтаж и настройка</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Сервисный центр и запчасти в наличии</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Кредит и рассрочка на оборудование</span></li>
-          </ul>
-          <a href="contacts.html" class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm">
-            <i class="fas fa-shopping-cart"></i> Заказать услугу
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- SERVICE 6: ДАТЧИКИ УТЕЧКИ ГАЗА И КЛИМАТ-КОНТРОЛЬ             -->
-  <!-- ============================================================ -->
-  <section class="py-16 sm:py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-10" id="service-6">
-        <div class="w-12 h-12 bg-[#001A33] rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
-          <i class="fas fa-thermometer-half"></i>
-        </div>
-        <div>
-          <span class="text-[#E60000] text-xs font-semibold uppercase tracking-widest">Услуга 06</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#001A33]">Датчики утечки газа и климат-контроль</h2>
-        </div>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="space-y-6 text-gray-600 leading-relaxed">
-          <p><strong class="text-[#001A33]">Газоанализаторы и сигнализаторы утечки</strong> — стационарные и переносные приборы для обнаружения природного газа (метан), сжиженного газа (пропан-бутан), угарного газа (CO). Звуковая и световая сигнализация, автоматическое перекрытие газового клапана, отправка уведомлений на смартфон.</p>
-          <p><strong class="text-[#001A33]">Термостаты и программаторы</strong> — комнатные термостаты, погодозависимые контроллеры, программаторы отопления с недельным расписанием. Поддержание комфортной температуры с точностью до 0,1°C. Беспроводные (Wi-Fi/ZigBee) и проводные модели.</p>
-          <p><strong class="text-[#001A33]">Контроллеры микроклимата</strong> — интеграция датчиков температуры, влажности, CO2 в единую систему управления. Автоматическое управление вентиляцией, увлажнителями, осушителями, кондиционерами. Создание комфортного микроклимата с минимальным энергопотреблением.</p>
-          <p><strong class="text-[#001A33]">Системы газового мониторинга</strong> — комплексные решения для промышленных объектов: многоточечный контроль, вывод на диспетчерский пульт, интеграция с системами пожаротушения и вентиляции. Соответствие требованиям промышленной безопасности.</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-          <h3 class="text-lg font-bold text-[#001A33] mb-4 flex items-center gap-2">
-            <i class="fas fa-star text-[#E60000] text-sm"></i> Преимущества
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Сертифицированное газоаналитическое оборудование</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Автоматическое перекрытие газа при утечке</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Уведомления на смартфон 24/7</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Интеграция с системами Умный дом</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#E60000] mt-1 flex-shrink-0"></i><span class="text-sm text-gray-600">Экономия энергии до 25%</span></li>
-          </ul>
-          <a href="contacts.html" class="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-sm">
-            <i class="fas fa-shopping-cart"></i> Заказать услугу
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- CTA SECTION — НУЖНА КОНСУЛЬТАЦИЯ?                             -->
-  <!-- ============================================================ -->
-  <section class="py-16 bg-[#001A33]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Нужна консультация?</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">Свяжитесь с нами — наши инженеры помогут подобрать оптимальное решение для вашего объекта и ответят на все вопросы</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="contacts.html" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 text-base">
-          <i class="fas fa-phone-alt"></i> Связаться
-        </a>
-        <a href="tel:+77213567890" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/20 text-base">
-          <i class="fas fa-phone-alt"></i> +7 (7213) 56-78-90
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- FOOTER                                                        -->
-  <!-- ============================================================ -->
-  <footer class="bg-[#001A33] border-t border-white/10 pt-12 sm:pt-16 pb-24 sm:pb-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
-
-        <!-- Column 1: Logo + description -->
-        <div>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-xl font-black tracking-tight"><span class="text-[#E60000]">GAS</span> <span class="text-white">INPEX</span></span>
+          <!-- Column 2: Contacts -->
+          <div>
+            <h4 class="text-white font-bold text-base mb-4">Контакты</h4>
+            <div class="space-y-3 text-sm text-gray-400">
+              <div class="flex items-start gap-3">
+                <i class="fas fa-map-marker-alt text-[#E60000] mt-1"></i>
+                <span>г. Темиртау,<br />ул. Амангельды, 112</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-phone-alt text-[#E60000]"></i>
+                <a href="tel:+77213567890" class="hover:text-white transition"
+                  >+7 (7213) 56-78-90</a
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-envelope text-[#E60000]"></i>
+                <a
+                  href="mailto:info@gasinpex.kz"
+                  class="hover:text-white transition"
+                  >info@gasinpex.kz</a
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fab fa-whatsapp text-[#E60000]"></i
+                ><a
+                  href="https://wa.me/77213567890"
+                  class="hover:text-white transition"
+                  >WhatsApp</a
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-clock text-[#E60000]"></i>
+                <span>Пн–Пт: 09:00–18:00</span>
+              </div>
+            </div>
           </div>
-          <p class="text-sm text-gray-400 leading-relaxed mb-4">
-            Инжиниринг, автоматизация и поставка газового оборудования в Казахстане с 2010 года.
-          </p>
-          
-        </div>
 
-        <!-- Column 2: Contacts -->
-        <div>
-          <h4 class="text-white font-bold text-base mb-4">Контакты</h4>
-          <div class="space-y-3 text-sm text-gray-400">
-            <div class="flex items-start gap-3">
-              <i class="fas fa-map-marker-alt text-[#E60000] mt-1"></i>
-              <span>г. Темиртау,<br />ул. Амангельды, 112</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <i class="fas fa-phone-alt text-[#E60000]"></i>
-              <a href="tel:+77213567890" class="hover:text-white transition">+7 (7213) 56-78-90</a>
-            </div>
-            <div class="flex items-center gap-3">
-              <i class="fas fa-envelope text-[#E60000]"></i>
-              <a href="mailto:info@gasinpex.kz" class="hover:text-white transition">info@gasinpex.kz</a>
-            </div>
-            <div class="flex items-center gap-3"><i class="fab fa-whatsapp text-[#E60000]"></i><a href="https://wa.me/77213567890" class="hover:text-white transition">WhatsApp</a></div>
-            <div class="flex items-center gap-3">
-              <i class="fas fa-clock text-[#E60000]"></i>
-              <span>Пн–Пт: 09:00–18:00</span>
-            </div>
+          <!-- Column 3: Quick links -->
+          <div>
+            <h4 class="text-white font-bold text-base mb-4">Быстрые ссылки</h4>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Главная</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Услуги</a
+                >
+              </li>
+              <li>
+                <a
+                  href="objects.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Объекты</a
+                >
+              </li>
+              <li>
+                <a
+                  href="certificates.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Сертификаты</a
+                >
+              </li>
+              <li>
+                <a
+                  href="partners.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Партнеры</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contacts.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Контакты</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Catalog -->
+          <div>
+            <h4 class="text-white font-bold text-base mb-4">Каталог</h4>
+            <ul class="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href="catalog-industrial.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Промышленное газовое оборудование</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog-boilers.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Бытовые котлы</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog-smarthome.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Системы «Умный дом»</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog-kipia.html"
+                  class="text-gray-400 hover:text-white transition flex items-center gap-2"
+                  ><i
+                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                  ></i>
+                  Оборудование КИПиА</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Column 3: Quick links -->
-        <div>
-          <h4 class="text-white font-bold text-base mb-4">Быстрые ссылки</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="index.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Главная</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Услуги</a></li>
-            <li><a href="objects.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Объекты</a></li>
-            <li><a href="certificates.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Сертификаты</a></li>
-            <li><a href="partners.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Партнеры</a></li>
-            <li><a href="contacts.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Контакты</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Catalog -->
-        <div>
-          <h4 class="text-white font-bold text-base mb-4">Каталог</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="catalog-industrial.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Промышленное газовое оборудование</a></li>
-            <li><a href="catalog-boilers.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Бытовые котлы</a></li>
-            <li><a href="catalog-smarthome.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Системы «Умный дом»</a></li>
-            <li><a href="catalog-kipia.html" class="text-gray-400 hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-[#E60000]"></i> Оборудование КИПиА</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Bottom bar -->
-      <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-        <p>© 2024 ТОО «Gas Inpex». Все права защищены.</p>
-        <div class="flex items-center gap-4">
-          <a href="contacts.html" class="hover:text-white transition">Политика конфиденциальности</a>
-          <a href="contacts.html" class="hover:text-white transition">Условия использования</a>
+        <!-- Bottom bar -->
+        <div
+          class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500"
+        >
+          <p>© 2024 ТОО «Gas Inpex». Все права защищены.</p>
+          <div class="flex items-center gap-4">
+            <a href="contacts.html" class="hover:text-white transition"
+              >Политика конфиденциальности</a
+            >
+            <a href="contacts.html" class="hover:text-white transition"
+              >Условия использования</a
+            >
+          </div>
         </div>
       </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- SCROLL TO TOP BUTTON                                          -->
+    <!-- ============================================================ -->
+    <button
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-[#E60000] text-white shadow-lg hover:bg-[#cc0000] transition flex items-center justify-center"
+      style="display: none"
+      id="scrollTopBtn"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Scroll to top button visibility
+      window.addEventListener("scroll", function () {
+        const btn = document.getElementById("scrollTopBtn");
+        if (window.scrollY > 400) {
+          btn.style.display = "flex";
+        } else {
+          btn.style.display = "none";
+        }
+      });
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- STICKY CTA FOR MOBILE                                         -->
+    <!-- ============================================================ -->
+    <div
+      class="sticky-cta show lg:hidden bg-white border-t border-gray-200 shadow-2xl px-4 py-3 flex items-center justify-between"
+    >
+      <span class="text-sm font-semibold text-[#001A33]"
+        >Нужна консультация?</span
+      >
+      <a
+        href="tel:+77213567890"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition"
+      >
+        <i class="fas fa-phone-alt"></i> Вызвать инженера
+      </a>
     </div>
-  </footer>
 
-  <!-- ============================================================ -->
-  <!-- SCROLL TO TOP BUTTON                                          -->
-  <!-- ============================================================ -->
-  <button
-    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-[#E60000] text-white shadow-lg hover:bg-[#cc0000] transition flex items-center justify-center"
-    style="display:none"
-    id="scrollTopBtn"
-  >
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <script>
-    // Scroll to top button visibility
-    window.addEventListener('scroll', function() {
-      const btn = document.getElementById('scrollTopBtn');
-      if (window.scrollY > 400) {
-        btn.style.display = 'flex';
-      } else {
-        btn.style.display = 'none';
+    <!-- x-cloak handling -->
+    <style>
+      [x-cloak] {
+        display: none !important;
       }
-    });
-  </script>
-
-  <!-- ============================================================ -->
-  <!-- STICKY CTA FOR MOBILE                                         -->
-  <!-- ============================================================ -->
-  <div class="sticky-cta show lg:hidden bg-white border-t border-gray-200 shadow-2xl px-4 py-3 flex items-center justify-between">
-    <span class="text-sm font-semibold text-[#001A33]">Нужна консультация?</span>
-    <a href="tel:+77213567890" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition">
-      <i class="fas fa-phone-alt"></i> Вызвать инженера
-    </a>
-  </div>
-
-  <!-- x-cloak handling -->
-  <style>
-    [x-cloak] { display: none !important; }
-  </style>
-
-</body>
+    </style>
+  </body>
 </html>
