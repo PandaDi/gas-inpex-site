@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://unpkg.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; frame-src https://yandex.ru;" />
     <title>
       Gas Inpex — Инжиниринг, автоматизация и поставка газового оборудования
     </title>
@@ -15,6 +16,10 @@
       type="image/svg+xml"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>"
     />
+
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -72,6 +77,8 @@
     </script>
   </head>
   <body class="font-sans antialiased text-gray-800 bg-white">
+    <!-- SEO H1 (hidden, for crawlers) -->
+    <h1 class="sr-only">Gas Inpex — Инжиниринг, автоматизация и поставка газового оборудования в Казахстане</h1>
     <!-- ============================================================ -->
     <!-- TOP BAR                                                       -->
     <!-- ============================================================ -->
