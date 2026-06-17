@@ -73,7 +73,7 @@ document.addEventListener("alpine:init", function () {
         var self = this;
         this.timer = setInterval(function () {
           self.next();
-        }, 5000);
+        }, 3000);
       },
       next: function () {
         clearInterval(this.timer);
