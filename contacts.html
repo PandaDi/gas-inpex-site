@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://unpkg.com https://api-maps.yandex.ru 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://unpkg.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; frame-src https://yandex.ru;" />
     <title>Контакты — Gas Inpex</title>
     <meta
       name="description"
@@ -458,7 +458,12 @@
             <div
               class="mt-8 rounded-2xl overflow-hidden shadow-lg border border-gray-200"
             >
-              ><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aeffc825a0f25d615800cc17a7b97c312491e7499c00faeb4ca6696eda5bdb9ae&amp;width=665&amp;height=460&amp;lang=ru_RU&amp;scroll=true"></script>
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A006d9854c94e8b4b4b7b1d1a910f6b4f8c0f6b4f8c0f6b4f8c0f6b4f8c0f6b&source=constructor"
+                width="100%"
+                height="300"
+                
+              ></iframe>
             </div>
           </div>
         </div>
