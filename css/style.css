@@ -120,30 +120,30 @@ html {
 
 /* ===== Project Background Cards ===== */
 .project-bg-automation {
-  background: url("../images/project-automation.jpg") center/cover;
+  background: url("../images/project-automation.webp") center/cover;
 }
 .project-bg-boiler-house {
-  background: url("../images/project-boiler-house.jpg") center/cover;
+  background: url("../images/project-boiler-house.webp") center/cover;
 }
 .project-bg-factory {
-  background: url("../images/project-factory.jpg") center/cover;
+  background: url("../images/project-factory.webp") center/cover;
 }
 .project-bg-boiler-residential {
-  background: url("../images/project-boiler-residential.jpg") center/cover;
+  background: url("../images/project-boiler-residential.webp") center/cover;
 }
 
 /* ===== Objects Page Backgrounds ===== */
 .obj-bg-automation {
-  background: url("../images/obj-automation.jpg") center/cover;
+  background: url("../images/obj-automation.webp") center/cover;
 }
 .obj-bg-boiler-house {
-  background: url("../images/obj-boiler-house.jpg") center/cover;
+  background: url("../images/obj-boiler-house.webp") center/cover;
 }
 .obj-bg-cottage {
-  background: url("../images/obj-cottage.jpg") center/cover;
+  background: url("../images/obj-cottage.webp") center/cover;
 }
 .obj-bg-pipeline {
-  background: url("../images/obj-pipeline.jpg") center/cover;
+  background: url("../images/obj-pipeline.webp") center/cover;
 }
 
 /* ===== Scroll Top Button ===== */
