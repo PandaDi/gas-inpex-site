@@ -2,7 +2,7 @@
 // Replaces <i class="fas fa-xxx"> with inline SVG <use> elements
 (function() {
   // Sprite URL (relative to page)
-  var spriteUrl = 'images/fa-sprite.svg';
+  var spriteUrl = 'static/images/fa-sprite.svg';
   
   // Find all FA icon elements
   var icons = document.querySelectorAll('i[class*="fa-"]');
