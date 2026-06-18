@@ -66,27 +66,16 @@ document.addEventListener("alpine:init", function () {
         },
       ],
       timer: null,
-      inactivityTimeout: null,
       autoInterval: 5000,
-      _manualPause: false,
+
       init: function () {
         this.startAutoTimer();
       },
       startAutoTimer: function () {
         var self = this;
-        this._manualPause = false;
         this.timer = setInterval(function () {
-          if (self._manualPause) return;
           self.next();
         }, this.autoInterval);
-      },
-      resetInactivityTimer: function () {
-        var self = this;
-        clearInterval(this.timer);
-        clearTimeout(this.inactivityTimeout);
-        this.inactivityTimeout = setTimeout(function () {
-          self.startAutoTimer();
-        }, 20000);
       },
       next: function () {
         this.current = (this.current + 1) % this.slides.length;
@@ -96,19 +85,26 @@ document.addEventListener("alpine:init", function () {
           (this.current - 1 + this.slides.length) % this.slides.length;
       },
       nextSlide: function () {
-        this._manualPause = true;
         this.next();
-        this.resetInactivityTimer();
+        this.restartTimer();
       },
       prevSlide: function () {
-        this._manualPause = true;
         this.prev();
-        this.resetInactivityTimer();
+        this.restartTimer();
       },
       goToSlide: function (index) {
-        this._manualPause = true;
         this.current = index;
-        this.resetInactivityTimer();
+        this.restartTimer();
+      },
+      restartTimer: function () {
+        clearInterval(this.timer);
+        this.startAutoTimer();
+      },
+      pauseTimer: function () {
+        clearInterval(this.timer);
+      },
+      resumeTimer: function () {
+        this.startAutoTimer();
       },
     };
   });

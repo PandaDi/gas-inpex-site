@@ -18,6 +18,8 @@
       class="relative overflow-hidden bg-navy"
       x-data="heroSlider()"
       x-init="init()"
+      @mouseenter="pauseTimer()"
+      @mouseleave="resumeTimer()"
     >
       <!-- Slides container -->
       <div
