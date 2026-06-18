@@ -3,6 +3,12 @@
 {% block description %}ТОО «Gas Inpex» — инжиниринг, автоматизация (АСУ ТП), поставка промышленного газового оборудования, проектирование систем Умный дом. г. Темиртау.{% endblock %}
 {% block canonical %}https://pandadi.github.io/gas-inpex-site/{% endblock %}
 {% block og_url %}https://pandadi.github.io/gas-inpex-site/{% endblock %}
+{% block extra_head %}
+<link rel="preload" as="image" href="static/images/hero-industrial.webp" />
+<link rel="preload" as="image" href="static/images/hero-supply.webp" />
+<link rel="preload" as="image" href="static/images/hero-smarthome.webp" />
+<link rel="preload" as="image" href="static/images/hero-service.webp" />
+{% endblock %}
 
 {% block content %}
 <!-- ============================================================ -->
@@ -19,10 +25,8 @@
       >
         <template x-for="(slide, i) in slides" :key="i">
           <div
-            class="absolute inset-0 w-full h-full hero-fade"
-            x-show="current === i"
-            x-transition:enter.duration.600ms
-            x-transition:leave.duration.600ms
+            class="absolute inset-0 w-full h-full hero-slide"
+            :class="current === i ? 'hero-slide-active' : 'hero-slide-inactive'"
           >
             <!-- Background overlay gradient -->
             <div
