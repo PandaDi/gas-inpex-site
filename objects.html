@@ -14,20 +14,25 @@
       type="image/svg+xml"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>"
     />
+
+    <link rel="preconnect" href="https://unpkg.com" />
+
+    <link rel="preload" as="image" href="/static/images/hero-industrial.webp" />
     <!-- Tailwind CSS compiled -->
-    <link rel="stylesheet" href="css/tailwind.min.css" />
-    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="/static/css/tailwind.min.css" />
+    <!-- Alpine.js CDN -->
+    <script src="/static/js/main.js" defer></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <!-- FontAwesome → local SVG sprite -->
-    <script src="js/fontawesome.js" defer></script>
+    <script src="/static/js/fontawesome.js" defer></script>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="canonical"
-      href="https://pandadi.github.io/gas-inpex-site/objects.html"
-    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="canonical" href="https://pandadi.github.io/gas-inpex-site/objects.html" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Объекты — Gas Inpex" />
+    <meta
+      property="og:title"
+      content="Объекты — Gas Inpex"
+    />
     <meta
       property="og:description"
       content="Портфолио выполненных проектов ТОО «Gas Inpex»: промышленные котельные, автоматизация заводов, Умный дом, газопроводы."
@@ -50,7 +55,7 @@
         "legalName": "ТОО «Gas Inpex»",
         "url": "https://pandadi.github.io/gas-inpex-site/",
         "image": "https://pandadi.github.io/gas-inpex-site/images/hero-supply.webp",
-        "telephone": "+77213567890",
+        "telephone": "+772****7890",
         "email": "info@gasinpex.kz",
         "address": {
           "@type": "PostalAddress",
@@ -62,44 +67,44 @@
         "description": "Инжиниринг, автоматизация АСУ ТП, поставка и сервис газового оборудования."
       }
     </script>
+    
   </head>
   <body class="font-sans antialiased text-gray-800 bg-white">
-    <!-- TOP BAR -->
+    <!-- SEO H1 (hidden, for crawlers) -->
+    <h1 class="sr-only">Gas Inpex — Инжиниринг, автоматизация и поставка газового оборудования в Казахстане</h1>
+    <!-- ============================================================ -->
+    <!-- TOP BAR                                                       -->
+    <!-- ============================================================ -->
     <div class="bg-navy text-white text-sm">
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2"
       >
+        <!-- Language switcher -->
         <div class="hidden sm:flex items-center gap-2 text-xs text-gray-300">
           <i class="fas fa-shield-alt text-red-brand"></i
           ><span>Газовое оборудование, АСУ ТП и сервис по Казахстану</span>
         </div>
+        <!-- Contacts -->
         <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
           <a
-            href="tel:+77213567890"
+            href="tel:+772****7890"
             class="hover:text-red-brand transition flex items-center gap-1.5"
-            ><i class="fas fa-phone-alt text-red-brand text-xs"></i> +7 (7213)
-            56-78-90</a
           >
+            <i class="fas fa-phone-alt text-red-brand text-xs"></i> +7 (7213)
+            56-78-90
+          </a>
           <a
             href="mailto:info@gasinpex.kz"
             class="hover:text-red-brand transition flex items-center gap-1.5"
-            ><i class="fas fa-envelope text-red-brand text-xs"></i>
-            info@gasinpex.kz</a
-          ><a
-            href="https://wa.me/+7712739802"
+          >
+            <i class="fas fa-envelope text-red-brand text-xs"></i>
+            info@gasinpex.kz
+          </a>
+          <a
+            href="https://wa.me/+771****9802"
             class="hover:text-red-brand transition flex items-center gap-1.5"
             ><i class="fab fa-whatsapp text-red-brand text-xs"></i> WhatsApp</a
           >
-              <div class="flex items-center gap-3">
-                <i class="fab fa-instagram text-red-brand"></i>
-                ><a
-                  href="https://www.instagram.com/gas.inpex/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:text-white transition"
-                  >Instagram</a
-                >
-              </div>
           <a
             href="https://www.instagram.com/gas.inpex/"
             target="_blank"
@@ -107,14 +112,17 @@
             class="hover:text-red-brand transition flex items-center gap-1.5"
             ><i class="fab fa-instagram text-red-brand text-xs"></i> Instagram</a
           >
-          <span class="hidden md:flex items-center gap-1.5 text-gray-300"
-            ><i class="fas fa-map-marker-alt text-red-brand text-xs"></i> г.
-            Темиртау, ул. Амангельды, 112</span
-          >
+          <span class="hidden md:flex items-center gap-1.5 text-gray-300">
+            <i class="fas fa-map-marker-alt text-red-brand text-xs"></i> г.
+            Темиртау, ул. Амангельды, 112
+          </span>
         </div>
       </div>
     </div>
-    <!-- HEADER -->
+
+    <!-- ============================================================ -->
+    <!-- HEADER + NAVIGATION                                           -->
+    <!-- ============================================================ -->
     <header
       class="sticky top-0 z-50 bg-white transition-all duration-300"
       x-data="{ mobileOpen: false, scrolled: false }"
@@ -126,6 +134,7 @@
           class="flex items-center justify-between"
           :class="scrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'"
         >
+          <!-- Logo -->
           <a href="index.html" class="flex items-center gap-1 group">
             <span
               class="font-black tracking-tight transition-all"
@@ -135,41 +144,51 @@
               <span class="text-navy">INPEX</span>
             </span>
           </a>
+
+          <!-- Desktop Nav (lg+) -->
           <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
             <a
               href="index.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-navy active"
+              data-i18n="navHome"
               >Главная</a
             >
             <a
               href="services.html"
               class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
+              data-i18n="navServices"
               >Услуги</a
             >
             <a
               href="objects.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-navy active"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
+              data-i18n="navPortfolio"
               >Объекты</a
             >
             <a
               href="certificates.html"
               class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
+              data-i18n="navCertificates"
               >Сертификаты</a
             >
             <a
               href="partners.html"
               class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
+              data-i18n="navPartners"
               >Партнеры</a
             >
+            <!-- Каталог с dropdown -->
             <div class="group relative inline-flex items-center">
               <a
                 href="catalog-industrial.html"
                 class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy flex items-center gap-1 whitespace-nowrap"
-                >Каталог
+                data-i18n="navCatalog"
+              >
+                Каталог
                 <i
                   class="fas fa-chevron-down text-[10px] transition group-hover:rotate-180"
-                ></i
-              ></a>
+                ></i>
+              </a>
               <div
                 class="dropdown-content absolute top-full left-2 mt-0 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
               >
@@ -202,14 +221,20 @@
             <a
               href="contacts.html"
               class="px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
+              data-i18n="navContacts"
               >Контакты</a
             >
+            <!-- CTA Button -->
             <a
               href="contacts.html"
               class="ml-3 px-5 py-2.5 bg-red-brand text-white text-sm font-semibold rounded-lg hover:bg-red-dark transition shadow-lg shadow-red-500/20 flex items-center gap-2"
-              ><i class="fas fa-phone-alt"></i> Связаться</a
+              data-i18n="navCta"
             >
+              <i class="fas fa-phone-alt"></i> Связаться
+            </a>
           </nav>
+
+          <!-- Hamburger (mobile < lg) -->
           <button
             @click="mobileOpen = !mobileOpen"
             aria-label="Открыть меню"
@@ -240,6 +265,8 @@
           </button>
         </div>
       </div>
+
+      <!-- Mobile Menu -->
       <div
         class="lg:hidden border-t border-gray-100"
         x-show="mobileOpen"
@@ -248,33 +275,40 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
           <a
             href="index.html"
-            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-navy bg-gray-50"
+            data-i18n="navHome"
             >Главная</a
           >
           <a
             href="services.html"
             class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            data-i18n="navServices"
             >Услуги</a
           >
           <a
             href="objects.html"
-            class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-navy bg-gray-50"
+            class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            data-i18n="navPortfolio"
             >Объекты</a
           >
           <a
             href="certificates.html"
             class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            data-i18n="navCertificates"
             >Сертификаты</a
           >
           <a
             href="partners.html"
             class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            data-i18n="navPartners"
             >Партнеры</a
           >
+          <!-- Каталог mobile accordion -->
           <div x-data="{ catOpen: false }">
             <button
               @click="catOpen = !catOpen"
               class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+              data-i18n="navCatalog"
             >
               Каталог
               <i
@@ -309,18 +343,21 @@
           <a
             href="contacts.html"
             class="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
+            data-i18n="navContacts"
             >Контакты</a
           >
           <a
             href="contacts.html"
             class="block mt-3 px-5 py-3 bg-red-brand text-white text-sm font-semibold rounded-lg text-center"
+            data-i18n="navCta"
             >Связаться</a
           >
         </div>
       </div>
     </header>
 
-    <!-- PAGE HERO -->
+    
+<!-- PAGE HERO -->
     <section class="bg-navy py-16 sm:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span
@@ -450,7 +487,7 @@
             <div
               class="h-60 relative overflow-hidden flex items-center justify-center text-white/20 text-6xl"
               style="
-                background: url(&quot;images/obj-cottage.webp&quot;) center/cover;
+                background: url(&quot;/static/images/obj-cottage.webp&quot;) center/cover;
               "
             >
               <div class="absolute inset-0 bg-black/30"></div>
@@ -571,11 +608,19 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-navy border-t border-white/10 pt-12 sm:pt-16 pb-10">
+
+
+    <!-- ============================================================ -->
+    <!-- FOOTER                                                         -->
+    <!-- ============================================================ -->
+    <footer
+      class="bg-navy border-t border-white/10 pt-12 sm:pt-16 pb-24 sm:pb-10"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10"
         >
+          <!-- Column 1: Logo + description -->
           <div>
             <div class="flex items-center gap-3 mb-4">
               <span class="text-xl font-black tracking-tight"
@@ -583,40 +628,75 @@
                 <span class="text-white">INPEX</span></span
               >
             </div>
-            <p class="text-sm text-gray-400 leading-relaxed mb-4">
+            <p
+              class="text-sm text-gray-400 leading-relaxed mb-4"
+              data-i18n="footerDesc"
+            >
               Инжиниринг, автоматизация и поставка газового оборудования в
               Казахстане с 2010 года.
             </p>
           </div>
+
+          <!-- Column 2: Contacts -->
           <div>
-            <h4 class="text-white font-bold text-base mb-4">Контакты</h4>
+            <h4
+              class="text-white font-bold text-base mb-4"
+              data-i18n="footerContactsTitle"
+            >
+              Контакты
+            </h4>
             <div class="space-y-3 text-sm text-gray-400">
               <div class="flex items-start gap-3">
-                <i class="fas fa-map-marker-alt text-red-brand mt-1"></i
-                ><span>г. Темиртау,<br />ул. Амангельды, 112</span>
+                <i class="fas fa-map-marker-alt text-red-brand mt-1"></i>
+                <span>г. Темиртау,<br />ул. Амангельды, 112</span>
               </div>
               <div class="flex items-center gap-3">
-                <i class="fas fa-phone-alt text-red-brand"></i
-                ><a href="tel:+77213567890" class="hover:text-white transition"
+                <i class="fas fa-phone-alt text-red-brand"></i>
+                <a href="tel:+772****7890" class="hover:text-white transition"
                   >+7 (7213) 56-78-90</a
                 >
               </div>
               <div class="flex items-center gap-3">
-                <i class="fas fa-envelope text-red-brand"></i
-                ><a
+                <i class="fas fa-envelope text-red-brand"></i>
+                <a
                   href="mailto:info@gasinpex.kz"
                   class="hover:text-white transition"
                   >info@gasinpex.kz</a
                 >
               </div>
               <div class="flex items-center gap-3">
-                <i class="fas fa-clock text-red-brand"></i
-                ><span>Пн–Пт: 09:00–18:00</span>
+                <i class="fab fa-whatsapp text-red-brand"></i
+                ><a
+                  href="https://wa.me/+771****9802"
+                  class="hover:text-white transition"
+                  >WhatsApp</a
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fab fa-instagram text-red-brand"></i
+                ><a
+                  href="https://www.instagram.com/gas.inpex/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-white transition"
+                  >Instagram</a
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-clock text-red-brand"></i>
+                <span>Пн–Пт: 09:00–18:00</span>
               </div>
             </div>
           </div>
+
+          <!-- Column 3: Quick links -->
           <div>
-            <h4 class="text-white font-bold text-base mb-4">Быстрые ссылки</h4>
+            <h4
+              class="text-white font-bold text-base mb-4"
+              data-i18n="footerQuickLinks"
+            >
+              Быстрые ссылки
+            </h4>
             <ul class="space-y-2.5 text-sm">
               <li>
                 <a
@@ -625,7 +705,7 @@
                   ><i
                     class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
-                  Главная</a
+                  <span data-i18n="navHome">Главная</span></a
                 >
               </li>
               <li>
@@ -635,7 +715,7 @@
                   ><i
                     class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
-                  Услуги</a
+                  <span data-i18n="navServices">Услуги</span></a
                 >
               </li>
               <li>
@@ -645,7 +725,7 @@
                   ><i
                     class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
-                  Объекты</a
+                  <span data-i18n="navPortfolio">Объекты</span></a
                 >
               </li>
               <li>
@@ -655,7 +735,7 @@
                   ><i
                     class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
-                  Сертификаты</a
+                  <span data-i18n="navCertificates">Сертификаты</span></a
                 >
               </li>
               <li>
@@ -665,7 +745,7 @@
                   ><i
                     class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
-                  Партнеры</a
+                  <span data-i18n="navPartners">Партнеры</span></a
                 >
               </li>
               <li>
@@ -675,13 +755,20 @@
                   ><i
                     class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
-                  Контакты</a
+                  <span data-i18n="navContacts">Контакты</span></a
                 >
               </li>
             </ul>
           </div>
+
+          <!-- Column 4: Catalog -->
           <div>
-            <h4 class="text-white font-bold text-base mb-4">Каталог</h4>
+            <h4
+              class="text-white font-bold text-base mb-4"
+              data-i18n="footerCatalog"
+            >
+              Каталог
+            </h4>
             <ul class="space-y-2.5 text-sm">
               <li>
                 <a
@@ -726,6 +813,8 @@
             </ul>
           </div>
         </div>
+
+        <!-- Bottom bar -->
         <div
           class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500"
         >
@@ -733,7 +822,8 @@
           <div class="flex items-center gap-4">
             <a href="contacts.html" class="hover:text-white transition"
               >Политика конфиденциальности</a
-            ><a href="contacts.html" class="hover:text-white transition"
+            >
+            <a href="contacts.html" class="hover:text-white transition"
               >Условия использования</a
             >
           </div>
@@ -741,6 +831,9 @@
       </div>
     </footer>
 
+    <!-- ============================================================ -->
+    <!-- SCROLL TO TOP BUTTON                                           -->
+    <!-- ============================================================ -->
     <button
       class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-red-brand text-white shadow-lg hover:bg-red-dark transition flex items-center justify-center"
       id="scrollTopBtn"
@@ -748,5 +841,26 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- ============================================================ -->
+    <!-- STICKY CTA FOR MOBILE                                          -->
+    <!-- ============================================================ -->
+    <div
+      class="sticky-cta show lg:hidden bg-white border-t border-gray-200 shadow-2xl px-4 py-3 flex items-center justify-between"
+    >
+      <span
+        class="text-sm font-semibold text-navy"
+        data-i18n="stickyCtaText"
+        >Нужна консультация?</span
+      >
+      <a
+        href="tel:+772****7890"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-red-brand text-white text-sm font-semibold rounded-lg hover:bg-red-dark transition"
+        data-i18n="stickyCtaBtn"
+      >
+        <i class="fas fa-phone-alt"></i> Вызвать инженера
+      </a>
+    </div>
+
+    
   </body>
 </html>
