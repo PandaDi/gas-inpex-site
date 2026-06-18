@@ -12,122 +12,248 @@
 
 {% block content %}
 <!-- ============================================================ -->
-    <!-- HERO SLIDER (Alpine.js Carousel)                               -->
+    <!-- HERO SLIDER (Vanilla JS Carousel)                               -->
     <!-- ============================================================ -->
     <section
+      id="hero-slider-section"
       class="relative overflow-hidden bg-navy"
-      x-data="heroSlider()"
-      x-init="init()"
-      @mouseenter="pauseTimer()"
-      @mouseleave="resumeTimer()"
     >
       <!-- Slides container -->
       <div
         class="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[85vh] min-h-[420px]"
       >
-        <template x-for="(slide, i) in slides" :key="i">
+        <!-- Slide 0: АСУ ТП / Инжиниринг и Автоматизация -->
+        <div class="absolute inset-0 w-full h-full hero-slide hero-slide-active">
           <div
-            class="absolute inset-0 w-full h-full hero-slide"
-            :class="current === i ? 'hero-slide-active' : 'hero-slide-inactive'"
+            class="absolute inset-0 bg-gradient-to-r from-navy/90 via-[#001A33]/70 to-transparent z-10"
+          ></div>
+          <div
+            class="absolute inset-0"
+            style="background: url(static/images/hero-industrial.webp) center/cover no-repeat"
+          ></div>
+          <div
+            class="relative z-20 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
           >
-            <!-- Background overlay gradient -->
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-navy/90 via-[#001A33]/70 to-transparent z-10"
-            ></div>
-            <!-- Background image placeholder (gradient) -->
-            <div
-              class="absolute inset-0"
-              :style="'background: ' + slide.bg"
-            ></div>
-            <!-- Content -->
-            <div
-              class="relative z-20 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-            >
-              <div class="max-w-2xl">
-                <span
-                  class="inline-block px-4 py-1.5 bg-red-brand text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4"
-                  x-text="slide.tag"
-                ></span>
-                <h1
-                  class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
-                  x-text="slide.title"
-                >
-                  Газовое оборудование, АСУ ТП и инженерные решения
-                </h1>
-                <p
-                  class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl"
-                  x-text="slide.desc"
-                ></p>
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <a
-                    href="contacts.html"
-                    class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-xl shadow-red-500/20 text-sm sm:text-base"
-                  >
-                    Получить консультацию
-                    <i class="fas fa-arrow-right text-sm"></i>
-                  </a>
-                  <a
-                    href="catalog-industrial.html"
-                    class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/25 backdrop-blur-sm text-sm sm:text-base"
-                  >
-                    Смотреть каталог <i class="fas fa-layer-group text-sm"></i>
-                  </a>
+            <div class="max-w-2xl">
+              <span
+                class="inline-block px-4 py-1.5 bg-red-brand text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4"
+              >АСУ ТП</span>
+              <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
+              >Инжиниринг и Автоматизация</h1>
+              <p
+                class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl"
+              >Проектирование и внедрение систем автоматизации технологических процессов (АСУ ТП) для промышленных объектов любой сложности.</p>
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a
+                  href="contacts.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-xl shadow-red-500/20 text-sm sm:text-base"
+                >Получить консультацию <i class="fas fa-arrow-right text-sm"></i></a>
+                <a
+                  href="catalog-industrial.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/25 backdrop-blur-sm text-sm sm:text-base"
+                >Смотреть каталог <i class="fas fa-layer-group text-sm"></i></a>
+              </div>
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">15+ лет</div>
+                  <div class="text-xs text-gray-300">опыта в инженерии</div>
                 </div>
-                <div
-                  class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl"
-                >
-                  <div
-                    class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3"
-                  >
-                    <div class="text-white font-bold">15+ лет</div>
-                    <div class="text-xs text-gray-300">опыта в инженерии</div>
-                  </div>
-                  <div
-                    class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3"
-                  >
-                    <div class="text-white font-bold">230+ объектов</div>
-                    <div class="text-xs text-gray-300">по Казахстану</div>
-                  </div>
-                  <div
-                    class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3"
-                  >
-                    <div class="text-white font-bold">АСУ ТП + Газофикации</div>
-                    <div class="text-xs text-gray-300">единый подрядчик</div>
-                  </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">230+ объектов</div>
+                  <div class="text-xs text-gray-300">по Казахстану</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">АСУ ТП + Газофикации</div>
+                  <div class="text-xs text-gray-300">единый подрядчик</div>
                 </div>
               </div>
             </div>
           </div>
-        </template>
+        </div>
+
+        <!-- Slide 1: Оборудование / Поставка газового оборудования -->
+        <div class="absolute inset-0 w-full h-full hero-slide hero-slide-inactive">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-navy/90 via-[#001A33]/70 to-transparent z-10"
+          ></div>
+          <div
+            class="absolute inset-0"
+            style="background: url(static/images/hero-supply.webp) center/cover no-repeat"
+          ></div>
+          <div
+            class="relative z-20 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          >
+            <div class="max-w-2xl">
+              <span
+                class="inline-block px-4 py-1.5 bg-red-brand text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4"
+              >Оборудование</span>
+              <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
+              >Поставка газового оборудования</h1>
+              <p
+                class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl"
+              >Широкий ассортимент промышленного и бытового газового оборудования от ведущих мировых производителей.</p>
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a
+                  href="contacts.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-xl shadow-red-500/20 text-sm sm:text-base"
+                >Получить консультацию <i class="fas fa-arrow-right text-sm"></i></a>
+                <a
+                  href="catalog-industrial.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/25 backdrop-blur-sm text-sm sm:text-base"
+                >Смотреть каталог <i class="fas fa-layer-group text-sm"></i></a>
+              </div>
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">15+ лет</div>
+                  <div class="text-xs text-gray-300">опыта в инженерии</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">230+ объектов</div>
+                  <div class="text-xs text-gray-300">по Казахстану</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">АСУ ТП + Газофикации</div>
+                  <div class="text-xs text-gray-300">единый подрядчик</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Smart Home / Проектирование систем Умного дома -->
+        <div class="absolute inset-0 w-full h-full hero-slide hero-slide-inactive">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-navy/90 via-[#001A33]/70 to-transparent z-10"
+          ></div>
+          <div
+            class="absolute inset-0"
+            style="background: url(static/images/hero-smarthome.webp) center/cover no-repeat"
+          ></div>
+          <div
+            class="relative z-20 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          >
+            <div class="max-w-2xl">
+              <span
+                class="inline-block px-4 py-1.5 bg-red-brand text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4"
+              >Smart Home</span>
+              <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
+              >Проектирование систем Умного дома</h1>
+              <p
+                class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl"
+              >Комплексные решения автоматизации жилых помещений: климат-контроль, освещение, безопасность и мультимедиа.</p>
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a
+                  href="contacts.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-xl shadow-red-500/20 text-sm sm:text-base"
+                >Получить консультацию <i class="fas fa-arrow-right text-sm"></i></a>
+                <a
+                  href="catalog-industrial.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/25 backdrop-blur-sm text-sm sm:text-base"
+                >Смотреть каталог <i class="fas fa-layer-group text-sm"></i></a>
+              </div>
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">15+ лет</div>
+                  <div class="text-xs text-gray-300">опыта в инженерии</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">230+ объектов</div>
+                  <div class="text-xs text-gray-300">по Казахстану</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">АСУ ТП + Газофикации</div>
+                  <div class="text-xs text-gray-300">единый подрядчик</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Сервис / Гарантийное и сервисное обслуживание -->
+        <div class="absolute inset-0 w-full h-full hero-slide hero-slide-inactive">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-navy/90 via-[#001A33]/70 to-transparent z-10"
+          ></div>
+          <div
+            class="absolute inset-0"
+            style="background: url(static/images/hero-service.webp) center/cover no-repeat"
+          ></div>
+          <div
+            class="relative z-20 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          >
+            <div class="max-w-2xl">
+              <span
+                class="inline-block px-4 py-1.5 bg-red-brand text-white text-xs font-semibold uppercase tracking-widest rounded-full mb-4"
+              >Сервис</span>
+              <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
+              >Гарантийное и сервисное обслуживание</h1>
+              <p
+                class="text-base sm:text-lg text-gray-300 mb-8 max-w-xl"
+              >Оперативное сервисное обслуживание, ремонт и техническая поддержка всего поставляемого оборудования.</p>
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a
+                  href="contacts.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-xl shadow-red-500/20 text-sm sm:text-base"
+                >Получить консультацию <i class="fas fa-arrow-right text-sm"></i></a>
+                <a
+                  href="catalog-industrial.html"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/25 backdrop-blur-sm text-sm sm:text-base"
+                >Смотреть каталог <i class="fas fa-layer-group text-sm"></i></a>
+              </div>
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">15+ лет</div>
+                  <div class="text-xs text-gray-300">опыта в инженерии</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">230+ объектов</div>
+                  <div class="text-xs text-gray-300">по Казахстану</div>
+                </div>
+                <div class="rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm px-4 py-3">
+                  <div class="text-white font-bold">АСУ ТП + Газофикации</div>
+                  <div class="text-xs text-gray-300">единый подрядчик</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Dots navigation -->
       <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-        <template x-for="(slide, i) in slides" :key="i">
-          <button
-            @click="goToSlide(i)"
-            :class="current === i ? 'bg-red-brand w-8' : 'bg-white/40 w-3 hover:bg-white/70'"
-            class="h-3 rounded-full transition-all duration-300"
-            :aria-label="'Слайд ' + (i + 1)"
-          ></button>
-        </template>
+        <button
+          class="hero-dot h-3 rounded-full transition-all duration-300 bg-red-brand w-8"
+          data-slide-index="0"
+          aria-label="Слайд 1"
+        ></button>
+        <button
+          class="hero-dot h-3 rounded-full transition-all duration-300 bg-white/40 w-3 hover:bg-white/70"
+          data-slide-index="1"
+          aria-label="Слайд 2"
+        ></button>
+        <button
+          class="hero-dot h-3 rounded-full transition-all duration-300 bg-white/40 w-3 hover:bg-white/70"
+          data-slide-index="2"
+          aria-label="Слайд 3"
+        ></button>
+        <button
+          class="hero-dot h-3 rounded-full transition-all duration-300 bg-white/40 w-3 hover:bg-white/70"
+          data-slide-index="3"
+          aria-label="Слайд 4"
+        ></button>
       </div>
 
       <!-- Arrows -->
       <button
-        @click="prevSlide()"
-        class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition border border-white/20"
-      >
-        <i class="fas fa-chevron-left text-sm sm:text-base"></i>
-      </button>
+        class="hero-prev absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition border border-white/20"
+      ><i class="fas fa-chevron-left text-sm sm:text-base"></i></button>
       <button
-        @click="nextSlide()"
-        class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition border border-white/20"
-      >
-        <i class="fas fa-chevron-right text-sm sm:text-base"></i>
-      </button>
-
-    <!-- Alpine.js component logic -->
+        class="hero-next absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition border border-white/20"
+      ><i class="fas fa-chevron-right text-sm sm:text-base"></i></button>
     </section>
 
     <!-- ============================================================ -->

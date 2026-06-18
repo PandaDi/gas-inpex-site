@@ -31,84 +31,84 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
   }
+
+  // Hero Slider — Vanilla JS
+  initHeroSlider();
 });
+
+// ===== Hero Slider (Vanilla JS) =====
+function initHeroSlider() {
+  var section = document.getElementById("hero-slider-section");
+  if (!section) return;
+
+  var slides = section.querySelectorAll(".hero-slide");
+  var dots = section.querySelectorAll(".hero-dot");
+  var prevBtn = section.querySelector(".hero-prev");
+  var nextBtn = section.querySelector(".hero-next");
+  var current = 0;
+  var timer = null;
+
+  function showSlide(index) {
+    slides.forEach(function (slide, i) {
+      slide.classList.remove("hero-slide-active", "hero-slide-inactive");
+      slide.classList.add(i === index ? "hero-slide-active" : "hero-slide-inactive");
+    });
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("bg-red-brand", i === index);
+      dot.classList.toggle("w-8", i === index);
+      dot.classList.toggle("bg-white/40", i !== index);
+      dot.classList.toggle("w-3", i !== index);
+    });
+    current = index;
+  }
+
+  function nextSlide() {
+    showSlide((current + 1) % slides.length);
+    restartTimer();
+  }
+
+  function prevSlide() {
+    showSlide((current - 1 + slides.length) % slides.length);
+    restartTimer();
+  }
+
+  function goToSlide(index) {
+    showSlide(index);
+    restartTimer();
+  }
+
+  function startTimer() {
+    timer = setInterval(nextSlide, 5000);
+  }
+
+  function pauseTimer() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  function restartTimer() {
+    clearInterval(timer);
+    startTimer();
+  }
+
+  // Event bindings
+  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      goToSlide(parseInt(dot.dataset.slideIndex));
+    });
+  });
+  section.addEventListener("mouseenter", pauseTimer);
+  section.addEventListener("mouseleave", function () {
+    if (!timer) startTimer();
+  });
+
+  startTimer();
+}
 
 // ===== Alpine.js Data Components =====
 document.addEventListener("alpine:init", function () {
-  // Hero Slider
-  Alpine.data("heroSlider", function () {
-    return {
-      current: 0,
-      slides: [
-        {
-          title: "Инжиниринг и Автоматизация",
-          desc: "Проектирование и внедрение систем автоматизации технологических процессов (АСУ ТП) для промышленных объектов любой сложности.",
-          tag: "АСУ ТП",
-          bg: "url(static/images/hero-industrial.webp) center/cover no-repeat",
-        },
-        {
-          title: "Поставка газового оборудования",
-          desc: "Широкий ассортимент промышленного и бытового газового оборудования от ведущих мировых производителей.",
-          tag: "Оборудование",
-          bg: "url(static/images/hero-supply.webp) center/cover no-repeat",
-        },
-        {
-          title: "Проектирование систем Умного дома",
-          desc: "Комплексные решения автоматизации жилых помещений: климат-контроль, освещение, безопасность и мультимедиа.",
-          tag: "Smart Home",
-          bg: "url(static/images/hero-smarthome.webp) center/cover no-repeat",
-        },
-        {
-          title: "Гарантийное и сервисное обслуживание",
-          desc: "Оперативное сервисное обслуживание, ремонт и техническая поддержка всего поставляемого оборудования.",
-          tag: "Сервис",
-          bg: "url(static/images/hero-service.webp) center/cover no-repeat",
-        },
-      ],
-      timer: null,
-      autoInterval: 5000,
-
-      init: function () {
-        this.startAutoTimer();
-      },
-      startAutoTimer: function () {
-        var self = this;
-        this.timer = setInterval(function () {
-          self.next();
-        }, this.autoInterval);
-      },
-      next: function () {
-        this.current = (this.current + 1) % this.slides.length;
-      },
-      prev: function () {
-        this.current =
-          (this.current - 1 + this.slides.length) % this.slides.length;
-      },
-      nextSlide: function () {
-        this.next();
-        this.restartTimer();
-      },
-      prevSlide: function () {
-        this.prev();
-        this.restartTimer();
-      },
-      goToSlide: function (index) {
-        this.current = index;
-        this.restartTimer();
-      },
-      restartTimer: function () {
-        clearInterval(this.timer);
-        this.startAutoTimer();
-      },
-      pauseTimer: function () {
-        clearInterval(this.timer);
-      },
-      resumeTimer: function () {
-        this.startAutoTimer();
-      },
-    };
-  });
-
   // Counter
   Alpine.data("counter", function (target) {
     return {
