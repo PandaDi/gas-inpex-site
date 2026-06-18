@@ -68,12 +68,15 @@ document.addEventListener("alpine:init", function () {
       timer: null,
       inactivityTimeout: null,
       autoInterval: 5000,
+      _manualPause: false,
       init: function () {
         this.startAutoTimer();
       },
       startAutoTimer: function () {
         var self = this;
+        this._manualPause = false;
         this.timer = setInterval(function () {
+          if (self._manualPause) return;
           self.next();
         }, this.autoInterval);
       },
@@ -93,14 +96,17 @@ document.addEventListener("alpine:init", function () {
           (this.current - 1 + this.slides.length) % this.slides.length;
       },
       nextSlide: function () {
+        this._manualPause = true;
         this.next();
         this.resetInactivityTimer();
       },
       prevSlide: function () {
+        this._manualPause = true;
         this.prev();
         this.resetInactivityTimer();
       },
       goToSlide: function (index) {
+        this._manualPause = true;
         this.current = index;
         this.resetInactivityTimer();
       },

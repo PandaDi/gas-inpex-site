@@ -68,6 +68,11 @@
       }
     </script>
     
+<link rel="preload" as="image" href="static/images/hero-industrial.webp" />
+<link rel="preload" as="image" href="static/images/hero-supply.webp" />
+<link rel="preload" as="image" href="static/images/hero-smarthome.webp" />
+<link rel="preload" as="image" href="static/images/hero-service.webp" />
+
   </head>
   <body class="font-sans antialiased text-gray-800 bg-white">
     <!-- SEO H1 (hidden, for crawlers) -->
@@ -373,10 +378,8 @@
       >
         <template x-for="(slide, i) in slides" :key="i">
           <div
-            class="absolute inset-0 w-full h-full hero-fade"
-            x-show="current === i"
-            x-transition:enter.duration.600ms
-            x-transition:leave.duration.600ms
+            class="absolute inset-0 w-full h-full hero-slide"
+            :class="current === i ? 'hero-slide-active' : 'hero-slide-inactive'"
           >
             <!-- Background overlay gradient -->
             <div
