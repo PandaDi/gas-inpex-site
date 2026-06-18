@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}Контакты — Gas Inpex{% endblock %}
+{% block description %}Контакты ТОО «Gas Inpex»: г. Темиртау, ул. Амангельды, 112. Телефон, email, форма обратной связи.{% endblock %}
+{% block canonical %}https://pandadi.github.io/gas-inpex-site/contacts.html{% endblock %}
+{% block og_url %}https://pandadi.github.io/gas-inpex-site/contacts.html{% endblock %}
+{% block og_image %}https://pandadi.github.io/gas-inpex-site/images/og-preview.webp{% endblock %}
+
+{% block content %}
+<section class="bg-navy py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span
+          class="text-red-brand text-sm font-semibold uppercase tracking-widest"
+          >Контакты</span
+        >
+        <h1
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4"
+        >
+          Свяжитесь с нами
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          Оставьте заявку — наши специалисты свяжутся с вами в ближайшее время
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-2xl font-bold text-navy mb-6">
+              Форма обратной связи
+            </h2>
+            <form class="space-y-5 contact-form">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="contact-name"
+                  >Ваше имя *</label
+                ><input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E60000] focus:border-transparent outline-none text-sm"
+                  placeholder="Иван Иванов"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="contact-phone"
+                  >Телефон *</label
+                ><input
+                  id="contact-phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E60000] focus:border-transparent outline-none text-sm"
+                  placeholder="+7 (7213) 56-78-90"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="contact-email"
+                  >Email</label
+                ><input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E60000] focus:border-transparent outline-none text-sm"
+                  placeholder="info@gasinpex.kz"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="contact-message"
+                  >Сообщение *</label
+                ><textarea
+                  id="contact-message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E60000] focus:border-transparent outline-none text-sm resize-none"
+                  placeholder="Опишите ваш вопрос или задачу..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full px-6 py-3.5 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-lg shadow-red-500/20 text-sm"
+              >
+                <i class="fab fa-whatsapp mr-2"></i>Отправить заявку в WhatsApp
+              </button>
+              <p class="text-xs text-gray-500 text-center">
+                После нажатия откроется WhatsApp с подготовленным текстом
+                заявки.
+              </p>
+            </form>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-navy mb-6">
+              Наши контакты
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-red-brand/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-map-marker-alt text-red-brand text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-sm">Адрес</h3>
+                  <p class="text-gray-500 text-sm">
+                    г. Темиртау, ул. Амангельды, 112
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-phone-alt text-navy text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-sm">Телефон</h3>
+                  <a
+                    href="tel:+77213567890"
+                    class="text-gray-500 text-sm hover:text-red-brand transition"
+                    >+7 (7213) 56-78-90</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-sm">WhatsApp</h3>
+                  <a
+                    href="https://wa.me/+7712739802"
+                    class="text-gray-500 text-sm hover:text-red-brand transition"
+                    >Написать в WhatsApp</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-red-brand/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-envelope text-red-brand text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-sm">Email</h3>
+                  <a
+                    href="mailto:info@gasinpex.kz"
+                    class="text-gray-500 text-sm hover:text-red-brand transition"
+                    >info@gasinpex.kz</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fas fa-clock text-navy text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy text-sm">Режим работы</h3>
+                  <p class="text-gray-500 text-sm">
+                    Пн–Пт: 09:00–18:00<br />Сб–Вс: выходной
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mt-8 rounded-2xl overflow-hidden shadow-lg border border-gray-200"
+            >
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A006d9854c94e8b4b4b7b1d1a910f6b4f8c0f6b4f8c0f6b4f8c0f6b4f8c0f6b&source=constructor"
+                width="100%"
+                height="300"
+                
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

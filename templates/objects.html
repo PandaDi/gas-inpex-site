@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% block title %}Объекты — Gas Inpex{% endblock %}
+{% block description %}Портфолио выполненных проектов ТОО «Gas Inpex»: промышленные котельные, автоматизация заводов, Умный дом, газопроводы.{% endblock %}
+{% block canonical %}https://pandadi.github.io/gas-inpex-site/objects.html{% endblock %}
+{% block og_url %}https://pandadi.github.io/gas-inpex-site/objects.html{% endblock %}
+{% block og_image %}https://pandadi.github.io/gas-inpex-site/images/og-preview.webp{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+    <section class="bg-navy py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span
+          class="text-red-brand text-sm font-semibold uppercase tracking-widest"
+          >Наши проекты</span
+        >
+        <h1
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4"
+        >
+          Реализованные объекты
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          Портфолио выполненных проектов по всему Казахстану
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all border border-gray-100"
+          >
+            <div
+              class="h-60 relative overflow-hidden flex items-center justify-center text-white/20 text-6xl"
+              class="obj-bg-boiler-house"
+            >
+              <div class="absolute inset-0 bg-black/30"></div>
+              <i class="fas fa-industry relative z-10"></i>
+            </div>
+            <div class="p-6 sm:p-8">
+              <span class="text-xs text-red-brand font-semibold"
+                >2024 | Темиртау</span
+              >
+              <h3 class="text-xl font-bold text-navy mt-2 mb-3">
+                Промышленная котельная для производственного объекта
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                Комплекс работ: обследование, подбор горелочного оборудования,
+                поставка, монтаж, пусконаладка и автоматизация котельной.
+                Решение рассчитано на стабильную работу под промышленной
+                нагрузкой и удобное обслуживание персоналом.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Котельная</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >АСУ ТП</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Сервис</span
+                >
+              </div>
+              <div
+                class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-gray-500"
+              >
+                <div class="bg-gray-50 rounded-lg p-2">
+                  Задача: стабильная теплогенерация
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2">Работы: СМР + ПНР</div>
+                <div class="bg-gray-50 rounded-lg p-2">
+                  Результат: готовность к эксплуатации
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all border border-gray-100"
+          >
+            <div
+              class="h-60 relative overflow-hidden flex items-center justify-center text-white/20 text-6xl"
+              class="obj-bg-automation"
+            >
+              <div class="absolute inset-0 bg-black/30"></div>
+              <i class="fas fa-microchip relative z-10"></i>
+            </div>
+            <div class="p-6 sm:p-8">
+              <span class="text-xs text-red-brand font-semibold"
+                >2023 | Караганда</span
+              >
+              <h3 class="text-xl font-bold text-navy mt-2 mb-3">
+                Автоматизация производственной линии
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                Разработка и внедрение АСУ ТП для производственного участка:
+                шкаф управления, программирование ПЛК, операторская панель,
+                аварийная сигнализация и удалённый мониторинг параметров.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >АСУ ТП</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >SCADA</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >ПЛК</span
+                >
+              </div>
+              <div
+                class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-gray-500"
+              >
+                <div class="bg-gray-50 rounded-lg p-2">
+                  Задача: контроль линии
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2">Работы: шкаф + ПО</div>
+                <div class="bg-gray-50 rounded-lg p-2">
+                  Результат: диспетчеризация
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all border border-gray-100"
+          >
+            <div
+              class="h-60 relative overflow-hidden flex items-center justify-center text-white/20 text-6xl"
+              style="
+                background: url(&quot;/static/images/obj-cottage.webp&quot;) center/cover;
+              "
+            >
+              <div class="absolute inset-0 bg-black/30"></div>
+              <i class="fas fa-home relative z-10"></i>
+            </div>
+            <div class="p-6 sm:p-8">
+              <span class="text-xs text-red-brand font-semibold"
+                >2024 | Астана</span
+              >
+              <h3 class="text-xl font-bold text-navy mt-2 mb-3">
+                Система «Умный дом» для частного объекта
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                Комплексная автоматизация 15 коттеджей: климат-контроль,
+                управление освещением, охранная сигнализация, видеонаблюдение,
+                автоматизация ворот. Центральный контроллер Fibaro Home Center
+                3.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Умный дом</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Fibaro</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Климат-контроль</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 4 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all border border-gray-100"
+          >
+            <div
+              class="h-60 relative overflow-hidden flex items-center justify-center text-white/20 text-6xl"
+              class="obj-bg-pipeline"
+            >
+              <div class="absolute inset-0 bg-black/30"></div>
+              <i class="fas fa-fire relative z-10"></i>
+            </div>
+            <div class="p-6 sm:p-8">
+              <span class="text-xs text-red-brand font-semibold"
+                >2022 | Караганда</span
+              >
+              <h3 class="text-xl font-bold text-navy mt-2 mb-3">
+                Монтаж наружного и внутреннего газопровода
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                Проектирование и строительство газопровода среднего давления
+                протяжённостью 1,2 км. Монтаж ГРП, узлов учёта газа, системы
+                телеметрии и диспетчеризации. Получение разрешительной
+                документации.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Газопровод</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >ГРП</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-xs rounded-full text-gray-600"
+                  >Телеметрия</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-16 bg-navy text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <span class="text-4xl font-bold text-red-brand">230+</span>
+            <p class="text-sm text-gray-400 mt-2">Проектов выполнено</p>
+          </div>
+          <div>
+            <span class="text-4xl font-bold text-red-brand">85</span>
+            <p class="text-sm text-gray-400 mt-2">Партнёров</p>
+          </div>
+          <div>
+            <span class="text-4xl font-bold text-red-brand">14</span>
+            <p class="text-sm text-gray-400 mt-2">Городов присутствия</p>
+          </div>
+          <div>
+            <span class="text-4xl font-bold text-red-brand">15</span>
+            <p class="text-sm text-gray-400 mt-2">Лет на рынке</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-4">
+          Хотите реализовать подобный проект?
+        </h2>
+        <p class="text-gray-500 max-w-2xl mx-auto mb-8 text-lg">
+          Свяжитесь с нами для обсуждения вашего объекта
+        </p>
+        <a
+          href="contacts.html"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-lg shadow-red-500/20"
+          ><i class="fas fa-phone-alt"></i> Связаться</a
+        >
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+{% endblock %}
