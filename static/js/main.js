@@ -66,25 +66,43 @@ document.addEventListener("alpine:init", function () {
         },
       ],
       timer: null,
+      inactivityTimeout: null,
+      autoInterval: 5000,
       init: function () {
-        this.startTimer();
+        this.startAutoTimer();
       },
-      startTimer: function () {
+      startAutoTimer: function () {
         var self = this;
         this.timer = setInterval(function () {
           self.next();
-        }, 3000);
+        }, this.autoInterval);
+      },
+      resetInactivityTimer: function () {
+        var self = this;
+        clearInterval(this.timer);
+        clearTimeout(this.inactivityTimeout);
+        this.inactivityTimeout = setTimeout(function () {
+          self.startAutoTimer();
+        }, 20000);
       },
       next: function () {
-        clearInterval(this.timer);
         this.current = (this.current + 1) % this.slides.length;
-        this.startTimer();
       },
       prev: function () {
-        clearInterval(this.timer);
         this.current =
           (this.current - 1 + this.slides.length) % this.slides.length;
-        this.startTimer();
+      },
+      nextSlide: function () {
+        this.next();
+        this.resetInactivityTimer();
+      },
+      prevSlide: function () {
+        this.prev();
+        this.resetInactivityTimer();
+      },
+      goToSlide: function (index) {
+        this.current = index;
+        this.resetInactivityTimer();
       },
     };
   });
