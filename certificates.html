@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://unpkg.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; frame-src https://yandex.ru;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; frame-src https://yandex.ru;" />
     <title>Сертификаты и лицензии — Gas Inpex</title>
     <meta
       name="description"
@@ -14,15 +14,12 @@
       type="image/svg+xml"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS compiled -->
+    <link rel="stylesheet" href="css/tailwind.min.css" />
     <script src="js/main.js" defer></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <!-- FontAwesome → local SVG sprite -->
+    <script src="js/fontawesome.js" defer></script>
 
     <link rel="stylesheet" href="css/style.css" />
     <link
@@ -41,7 +38,7 @@
     />
     <meta
       property="og:image"
-      content="https://pandadi.github.io/gas-inpex-site/images/hero-supply.webp"
+      content="https://pandadi.github.io/gas-inpex-site/images/og-preview.webp"
     />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -68,40 +65,40 @@
   </head>
   <body class="font-sans antialiased text-gray-800 bg-white">
     <!-- TOP BAR -->
-    <div class="bg-[#001A33] text-white text-sm">
+    <div class="bg-navy text-white text-sm">
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2"
       >
         <div class="hidden sm:flex items-center gap-2 text-xs text-gray-300">
-          <i class="fas fa-shield-alt text-[#E60000]"></i
+          <i class="fas fa-shield-alt text-red-brand"></i
           ><span>Газовое оборудование, АСУ ТП и сервис по Казахстану</span>
         </div>
         <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
           <a
             href="tel:+77213567890"
-            class="hover:text-[#E60000] transition flex items-center gap-1.5"
-            ><i class="fas fa-phone-alt text-[#E60000] text-xs"></i> +7 (7213)
+            class="hover:text-red-brand transition flex items-center gap-1.5"
+            ><i class="fas fa-phone-alt text-red-brand text-xs"></i> +7 (7213)
             56-78-90</a
           >
           <a
             href="mailto:info@gasinpex.kz"
-            class="hover:text-[#E60000] transition flex items-center gap-1.5"
-            ><i class="fas fa-envelope text-[#E60000] text-xs"></i>
+            class="hover:text-red-brand transition flex items-center gap-1.5"
+            ><i class="fas fa-envelope text-red-brand text-xs"></i>
             info@gasinpex.kz</a
           ><a
             href="https://wa.me/+7712739802"
-            class="hover:text-[#E60000] transition flex items-center gap-1.5"
-            ><i class="fab fa-whatsapp text-[#E60000] text-xs"></i> WhatsApp</a
+            class="hover:text-red-brand transition flex items-center gap-1.5"
+            ><i class="fab fa-whatsapp text-red-brand text-xs"></i> WhatsApp</a
           >
           <a
             href="https://www.instagram.com/gas.inpex/"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-[#E60000] transition flex items-center gap-1.5"
-            ><i class="fab fa-instagram text-[#E60000] text-xs"></i> Instagram</a
+            class="hover:text-red-brand transition flex items-center gap-1.5"
+            ><i class="fab fa-instagram text-red-brand text-xs"></i> Instagram</a
           >
           <span class="hidden md:flex items-center gap-1.5 text-gray-300"
-            ><i class="fas fa-map-marker-alt text-[#E60000] text-xs"></i> г.
+            ><i class="fas fa-map-marker-alt text-red-brand text-xs"></i> г.
             Темиртау, ул. Амангельды, 112</span
           >
         </div>
@@ -124,40 +121,40 @@
               class="font-black tracking-tight transition-all"
               :class="scrolled ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'"
             >
-              <span class="text-[#E60000]">GAS</span>
-              <span class="text-[#001A33]">INPEX</span>
+              <span class="text-red-brand">GAS</span>
+              <span class="text-navy">INPEX</span>
             </span>
           </a>
           <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
             <a
               href="index.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
               >Главная</a
             >
             <a
               href="services.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
               >Услуги</a
             >
             <a
               href="objects.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
               >Объекты</a
             >
             <a
               href="certificates.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-[#001A33] active"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-navy active"
               >Сертификаты</a
             >
             <a
               href="partners.html"
-              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
               >Партнеры</a
             >
             <div class="group relative inline-flex items-center">
               <a
                 href="catalog-industrial.html"
-                class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33] flex items-center gap-1 whitespace-nowrap"
+                class="nav-link px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy flex items-center gap-1 whitespace-nowrap"
                 >Каталог
                 <i
                   class="fas fa-chevron-down text-[10px] transition group-hover:rotate-180"
@@ -168,38 +165,38 @@
               >
                 <a
                   href="catalog-industrial.html"
-                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
-                  ><i class="fas fa-industry w-5 text-[#001A33]"></i>
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-brand transition"
+                  ><i class="fas fa-industry w-5 text-navy"></i>
                   Промышленное газовое оборудование</a
                 >
                 <a
                   href="catalog-boilers.html"
-                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
-                  ><i class="fas fa-fire-burner w-5 text-[#001A33]"></i> Бытовые
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-brand transition"
+                  ><i class="fas fa-fire-burner w-5 text-navy"></i> Бытовые
                   котлы</a
                 >
                 <a
                   href="catalog-smarthome.html"
-                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
-                  ><i class="fas fa-home w-5 text-[#001A33]"></i> Системы «Умный
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-brand transition"
+                  ><i class="fas fa-home w-5 text-navy"></i> Системы «Умный
                   дом»</a
                 >
                 <a
                   href="catalog-kipia.html"
-                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E60000] transition"
-                  ><i class="fas fa-microchip w-5 text-[#001A33]"></i>
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-brand transition"
+                  ><i class="fas fa-microchip w-5 text-navy"></i>
                   Оборудование КИПиА</a
                 >
               </div>
             </div>
             <a
               href="contacts.html"
-              class="px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#001A33]"
+              class="px-2 xl:px-3 py-2 text-sm font-medium text-gray-600 hover:text-navy"
               >Контакты</a
             >
             <a
               href="contacts.html"
-              class="ml-3 px-5 py-2.5 bg-[#E60000] text-white text-sm font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20 flex items-center gap-2"
+              class="ml-3 px-5 py-2.5 bg-red-brand text-white text-sm font-semibold rounded-lg hover:bg-red-dark transition shadow-lg shadow-red-500/20 flex items-center gap-2"
               ><i class="fas fa-phone-alt"></i> Связаться</a
             >
           </nav>
@@ -207,7 +204,7 @@
             @click="mobileOpen = !mobileOpen"
             aria-label="Открыть меню"
             :aria-expanded="mobileOpen"
-            class="lg:hidden p-2 rounded-lg text-[#001A33] hover:bg-gray-100 transition"
+            class="lg:hidden p-2 rounded-lg text-navy hover:bg-gray-100 transition"
           >
             <svg
               class="w-6 h-6"
@@ -256,7 +253,7 @@
           >
           <a
             href="certificates.html"
-            class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#001A33] bg-gray-50"
+            class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-navy bg-gray-50"
             >Сертификаты</a
           >
           <a
@@ -278,23 +275,23 @@
             <div x-show="catOpen" class="ml-4 mt-1 space-y-1" x-transition>
               <a
                 href="catalog-industrial.html"
-                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-red-brand"
                 ><i class="fas fa-industry w-5"></i> Промышленное газовое
                 оборудование</a
               >
               <a
                 href="catalog-boilers.html"
-                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-red-brand"
                 ><i class="fas fa-fire-burner w-5"></i> Бытовые котлы</a
               >
               <a
                 href="catalog-smarthome.html"
-                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-red-brand"
                 ><i class="fas fa-home w-5"></i> Системы «Умный дом»</a
               >
               <a
                 href="catalog-kipia.html"
-                class="block px-3 py-2 text-sm text-gray-500 hover:text-[#E60000]"
+                class="block px-3 py-2 text-sm text-gray-500 hover:text-red-brand"
                 ><i class="fas fa-microchip w-5"></i> Оборудование КИПиА</a
               >
             </div>
@@ -306,7 +303,7 @@
           >
           <a
             href="contacts.html"
-            class="block mt-3 px-5 py-3 bg-[#E60000] text-white text-sm font-semibold rounded-lg text-center"
+            class="block mt-3 px-5 py-3 bg-red-brand text-white text-sm font-semibold rounded-lg text-center"
             >Связаться</a
           >
         </div>
@@ -314,10 +311,10 @@
     </header>
 
     <!-- PAGE HERO -->
-    <section class="bg-[#001A33] py-16 sm:py-20">
+    <section class="bg-navy py-16 sm:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span
-          class="text-[#E60000] text-sm font-semibold uppercase tracking-widest"
+          class="text-red-brand text-sm font-semibold uppercase tracking-widest"
           >Документы</span
         >
         <h1
@@ -338,14 +335,14 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <!-- Cert 1 -->
           <div
-            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-[#E60000]/30 transition-all hover:shadow-lg"
+            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-brand/30 transition-all hover:shadow-lg"
           >
             <div
-              class="w-16 h-16 bg-[#E60000]/10 rounded-2xl flex items-center justify-center mb-5"
+              class="w-16 h-16 bg-red-brand/10 rounded-2xl flex items-center justify-center mb-5"
             >
-              <i class="fas fa-certificate text-3xl text-[#E60000]"></i>
+              <i class="fas fa-certificate text-3xl text-red-brand"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#001A33] mb-2">
+            <h3 class="text-xl font-bold text-navy mb-2">
               Документы системы качества
             </h3>
             <p class="text-sm text-gray-500 leading-relaxed mb-4">
@@ -360,14 +357,14 @@
           </div>
           <!-- Cert 2 -->
           <div
-            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-[#E60000]/30 transition-all hover:shadow-lg"
+            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-brand/30 transition-all hover:shadow-lg"
           >
             <div
-              class="w-16 h-16 bg-[#001A33]/10 rounded-2xl flex items-center justify-center mb-5"
+              class="w-16 h-16 bg-navy/10 rounded-2xl flex items-center justify-center mb-5"
             >
-              <i class="fas fa-file-contract text-3xl text-[#001A33]"></i>
+              <i class="fas fa-file-contract text-3xl text-navy"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#001A33] mb-2">
+            <h3 class="text-xl font-bold text-navy mb-2">
               Лицензия на проектирование объектов промышленной безопасности
             </h3>
             <p class="text-sm text-gray-500 leading-relaxed mb-4">
@@ -384,14 +381,14 @@
           </div>
           <!-- Cert 3 -->
           <div
-            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-[#E60000]/30 transition-all hover:shadow-lg"
+            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-brand/30 transition-all hover:shadow-lg"
           >
             <div
-              class="w-16 h-16 bg-[#E60000]/10 rounded-2xl flex items-center justify-center mb-5"
+              class="w-16 h-16 bg-red-brand/10 rounded-2xl flex items-center justify-center mb-5"
             >
-              <i class="fas fa-tools text-3xl text-[#E60000]"></i>
+              <i class="fas fa-tools text-3xl text-red-brand"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#001A33] mb-2">
+            <h3 class="text-xl font-bold text-navy mb-2">
               Лицензия на монтаж газового оборудования
             </h3>
             <p class="text-sm text-gray-500 leading-relaxed mb-4">
@@ -408,14 +405,14 @@
           </div>
           <!-- Cert 4 -->
           <div
-            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-[#E60000]/30 transition-all hover:shadow-lg"
+            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-brand/30 transition-all hover:shadow-lg"
           >
             <div
-              class="w-16 h-16 bg-[#001A33]/10 rounded-2xl flex items-center justify-center mb-5"
+              class="w-16 h-16 bg-navy/10 rounded-2xl flex items-center justify-center mb-5"
             >
-              <i class="fas fa-check-double text-3xl text-[#001A33]"></i>
+              <i class="fas fa-check-double text-3xl text-navy"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#001A33] mb-2">
+            <h3 class="text-xl font-bold text-navy mb-2">
               Сертификат соответствия на оборудование
             </h3>
             <p class="text-sm text-gray-500 leading-relaxed mb-4">
@@ -430,14 +427,14 @@
           </div>
           <!-- Cert 5 -->
           <div
-            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-[#E60000]/30 transition-all hover:shadow-lg"
+            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-brand/30 transition-all hover:shadow-lg"
           >
             <div
-              class="w-16 h-16 bg-[#E60000]/10 rounded-2xl flex items-center justify-center mb-5"
+              class="w-16 h-16 bg-red-brand/10 rounded-2xl flex items-center justify-center mb-5"
             >
-              <i class="fas fa-building text-3xl text-[#E60000]"></i>
+              <i class="fas fa-building text-3xl text-red-brand"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#001A33] mb-2">
+            <h3 class="text-xl font-bold text-navy mb-2">
               Свидетельство СРО
             </h3>
             <p class="text-sm text-gray-500 leading-relaxed mb-4">
@@ -452,14 +449,14 @@
           </div>
           <!-- Cert 6 -->
           <div
-            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-[#E60000]/30 transition-all hover:shadow-lg"
+            class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-brand/30 transition-all hover:shadow-lg"
           >
             <div
-              class="w-16 h-16 bg-[#001A33]/10 rounded-2xl flex items-center justify-center mb-5"
+              class="w-16 h-16 bg-navy/10 rounded-2xl flex items-center justify-center mb-5"
             >
-              <i class="fas fa-graduation-cap text-3xl text-[#001A33]"></i>
+              <i class="fas fa-graduation-cap text-3xl text-navy"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#001A33] mb-2">
+            <h3 class="text-xl font-bold text-navy mb-2">
               Аттестация специалистов
             </h3>
             <p class="text-sm text-gray-500 leading-relaxed mb-4">
@@ -477,7 +474,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-16 bg-[#001A33]">
+    <section class="py-16 bg-navy">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
           Запросить копии документов
@@ -488,14 +485,14 @@
         </p>
         <a
           href="contacts.html"
-          class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E60000] text-white font-semibold rounded-lg hover:bg-[#cc0000] transition shadow-lg shadow-red-500/20"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-red-brand text-white font-semibold rounded-lg hover:bg-red-dark transition shadow-lg shadow-red-500/20"
           ><i class="fas fa-file-export"></i> Отправить запрос</a
         >
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#001A33] border-t border-white/10 pt-12 sm:pt-16 pb-10">
+    <footer class="bg-navy border-t border-white/10 pt-12 sm:pt-16 pb-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10"
@@ -503,7 +500,7 @@
           <div>
             <div class="flex items-center gap-3 mb-4">
               <span class="text-xl font-black tracking-tight"
-                ><span class="text-[#E60000]">GAS</span>
+                ><span class="text-red-brand">GAS</span>
                 <span class="text-white">INPEX</span></span
               >
             </div>
@@ -516,17 +513,17 @@
             <h4 class="text-white font-bold text-base mb-4">Контакты</h4>
             <div class="space-y-3 text-sm text-gray-400">
               <div class="flex items-start gap-3">
-                <i class="fas fa-map-marker-alt text-[#E60000] mt-1"></i
+                <i class="fas fa-map-marker-alt text-red-brand mt-1"></i
                 ><span>г. Темиртау,<br />ул. Амангельды, 112</span>
               </div>
               <div class="flex items-center gap-3">
-                <i class="fas fa-phone-alt text-[#E60000]"></i
+                <i class="fas fa-phone-alt text-red-brand"></i
                 ><a href="tel:+77213567890" class="hover:text-white transition"
                   >+7 (7213) 56-78-90</a
                 >
               </div>
               <div class="flex items-center gap-3">
-                <i class="fas fa-envelope text-[#E60000]"></i
+                <i class="fas fa-envelope text-red-brand"></i
                 ><a
                   href="mailto:info@gasinpex.kz"
                   class="hover:text-white transition"
@@ -534,14 +531,14 @@
                 >
               </div>
               <div class="flex items-center gap-3">
-                <i class="fab fa-whatsapp text-[#E60000]"></i
+                <i class="fab fa-whatsapp text-red-brand"></i
                 ><a
                   href="https://wa.me/+7712739802"
                   class="hover:text-white transition"
                   >WhatsApp</a
                 >
               <div class="flex items-center gap-3">
-                <i class="fab fa-instagram text-[#E60000]"></i>
+                <i class="fab fa-instagram text-red-brand"></i>
                 ><a
                   href="https://www.instagram.com/gas.inpex/"
                   target="_blank"
@@ -552,7 +549,7 @@
               </div>
               </div>
               <div class="flex items-center gap-3">
-                <i class="fas fa-clock text-[#E60000]"></i
+                <i class="fas fa-clock text-red-brand"></i
                 ><span>Пн–Пт: 09:00–18:00</span>
               </div>
             </div>
@@ -565,7 +562,7 @@
                   href="index.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Главная</a
                 >
@@ -575,7 +572,7 @@
                   href="services.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Услуги</a
                 >
@@ -585,7 +582,7 @@
                   href="objects.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Объекты</a
                 >
@@ -595,7 +592,7 @@
                   href="certificates.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Сертификаты</a
                 >
@@ -605,7 +602,7 @@
                   href="partners.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Партнеры</a
                 >
@@ -615,7 +612,7 @@
                   href="contacts.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Контакты</a
                 >
@@ -630,7 +627,7 @@
                   href="catalog-industrial.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Промышленное газовое оборудование</a
                 >
@@ -640,7 +637,7 @@
                   href="catalog-boilers.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Бытовые котлы</a
                 >
@@ -650,7 +647,7 @@
                   href="catalog-smarthome.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Системы «Умный дом»</a
                 >
@@ -660,7 +657,7 @@
                   href="catalog-kipia.html"
                   class="text-gray-400 hover:text-white transition flex items-center gap-2"
                   ><i
-                    class="fas fa-chevron-right text-[10px] text-[#E60000]"
+                    class="fas fa-chevron-right text-[10px] text-red-brand"
                   ></i>
                   Оборудование КИПиА</a
                 >
@@ -683,7 +680,7 @@
       </div>
     </footer>
     <button
-      class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-[#E60000] text-white shadow-lg hover:bg-[#cc0000] transition flex items-center justify-center"
+      class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-red-brand text-white shadow-lg hover:bg-red-dark transition flex items-center justify-center"
       id="scrollTopBtn"
     >
       <i class="fas fa-arrow-up"></i>

@@ -150,3 +150,25 @@ html {
 #scrollTopBtn {
   display: none;
 }
+
+/* FontAwesome SVG icons */
+.fa-svg {
+  display: inline-block;
+  vertical-align: -0.125em;
+  line-height: 1;
+}
+
+/* Ensure icons in buttons and links align properly */
+button .fa-svg, a .fa-svg, .btn .fa-svg {
+  pointer-events: none;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+/* Specific sizing for common icon contexts */
+.fa-2x { font-size: 2em; }
+.fa-3x { font-size: 3em; }
+.fa-4x { font-size: 4em; }
+.fa-5x { font-size: 5em; }
+.fa-fw { width: 1.25em; text-align: center; }
+.fa-li { width: 2em; text-align: center; }

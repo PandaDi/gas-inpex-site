@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-red-brand: #E60000;
+  --color-red-dark: #cc0000;
+  --color-navy: #001A33;
+}
