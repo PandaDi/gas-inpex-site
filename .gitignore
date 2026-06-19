@@ -1,0 +1,30 @@
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Frozen-Flask build output
+build/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
